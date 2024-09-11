@@ -1,0 +1,22 @@
+@use './typography' as *;
+@use './variables' as *;
+@use './resets' as *;
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+@mixin tablet {
+    @media screen and (min-width:768px) and (max-width:1279px) {
+        @content
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width:1280px) {
+        @content
+    }
+}
