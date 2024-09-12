@@ -11,8 +11,20 @@
     color: $color-primary-text;
     padding: 0.5rem 1rem;
 
+    &__logo-link {
+        text-decoration: none;
+    }
+
     &__link {
         display: flex;
         gap: 1rem;
+        
+        &--grammar {
+            text-decoration: none;
+        }
+
+        &--vocab {
+            text-decoration: none;
+        }
     }
 }
