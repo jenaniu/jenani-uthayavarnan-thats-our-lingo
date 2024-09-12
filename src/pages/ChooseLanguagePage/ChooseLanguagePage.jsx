@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet'
 import Button from '../../components/Button/Button'
 import './ChooseLanguagePage.scss'
+import PageHeader from '../../components/PageHeader/PageHeader'
 
 
 function ChooseLanguagePage() {
@@ -8,8 +9,7 @@ function ChooseLanguagePage() {
     return (
         <>
             <section className="choose-lang" >
-                <span className="choose-lang__header">Choose a Language!</span>
-
+                <PageHeader headerClassName="choose-lang__header" headerText="Choose a Language!"/>
                 <article className="choose-lang__buttons">
                     <figure className="choose-lang__buttons--wrapper">
                         <Button buttonClassName="choose-lang__button" buttonText="French" />
