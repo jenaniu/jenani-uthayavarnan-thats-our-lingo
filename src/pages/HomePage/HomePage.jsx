@@ -13,8 +13,8 @@ function HomePage() {
         </Helmet> */}
       {/* </HelmetProvider> */}
       <section className="homepage" >
-        <h1 className="homepage__header">That's Our Lingo!</h1>
-        <Button buttonClassName="cheese" buttonText="Get Started!" />
+        <span className="homepage__header">That's Our Lingo!</span>
+        <Button buttonClassName="homepage__button" buttonText="Get Started!" />
       </section>
     </>
   )

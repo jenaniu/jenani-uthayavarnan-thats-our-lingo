@@ -4,10 +4,12 @@
 @use '../../styles/partials/fonts' as *;
 
 .nav-bar {
-    background-color: $color-primary-label;
+    background-color: $light-lilac;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: $color-primary-text;
+    padding: 0.5rem 1rem;
 
     &__link {
         display: flex;
