@@ -12,14 +12,22 @@
         color: $color-primary-text;
     }
     
-    &__button--wrapper {
+    &__buttons {
         display: flex;
-        flex-direction: row;
+        width: 100%;
+        flex-direction: column;
         justify-content: center;
-        gap: 0.5rem;
-        
-        .choose-lang__button {
-    
+        gap: 1rem;
+
+        &--wrapper {
+            width: 100%;
+            display: flex;
+            gap: 1rem;
+            .choose-lang__button {
+                width: 100%;
+            }
+
         }
+        
     }
 }
