@@ -1,0 +1,16 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/resets' as *;
+@use '../../styles/partials/fonts' as *;
+
+.nav-bar {
+    background-color: $color-primary-label;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__link {
+        display: flex;
+        gap: 1rem;
+    }
+}
