@@ -4,6 +4,15 @@
 @use '../../styles/partials/resets' as *;
 @use '../../styles/partials/fonts' as *;
 
-// * {
-//     font-family:'Dongle';
-// }
+body {
+    background-color: $color-primary-background;
+
+}
+.homepage {
+
+    &__header {
+        color: $lingo-red;
+    }
+
+
+}
