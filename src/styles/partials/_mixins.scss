@@ -11,12 +11,26 @@
 
 @mixin tablet {
     @media screen and (min-width:768px) and (max-width:1279px) {
-        @content
+        @content;
     }
 }
 
 @mixin desktop {
     @media screen and (min-width:1280px) {
-        @content
+        @content;
     }
+}
+
+@mixin header-text {
+    color: $lingo-red;
+    font-size: 4rem;
+    font-weight: bold;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+@mixin side-padding-mobile {
+    padding: 0rem 1rem;
 }

@@ -3,11 +3,16 @@
 @use '../../styles/partials/resets' as *;
 @use '../../styles/partials/fonts' as *;
 
+.choose-lang {
+    &__header {
+        
+    }
+}
 .button {
     background-color: $color-primary-cta;
     color: $color-primary-text;
-    border-radius: .25rem;
-    height: 2rem;
+    border-radius: .375rem;
+    height: 3rem;
     // max-width: 100%;
     border: none;
     padding: rem;
@@ -27,6 +32,7 @@
 
     &_text {
         font-weight: bold;
-        padding: 1rem;
+        font-size: 2rem;
+        padding: 0rem 1rem;
     }
 }

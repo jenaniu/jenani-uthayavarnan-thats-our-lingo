@@ -8,7 +8,7 @@ function ChooseLanguagePage() {
     return (
         <>
             <section className="choose-lang" >
-                <h1 className="choose-lang__header">Choose a Language!</h1>
+                <span className="choose-lang__header">Choose a Language!</span>
 
                 <article className="choose-lang__buttons">
                     <figure className="choose-lang__buttons--wrapper">
