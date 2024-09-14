@@ -5,6 +5,7 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 
+
 body {
     background-color: $color-primary-background;
     
@@ -21,6 +22,10 @@ body {
     
     &__header {
         @include header-text;
+        overflow: hidden;
+        white-space: nowrap;
+        letter-spacing: .15em;
+     
     }
 
     &__button {

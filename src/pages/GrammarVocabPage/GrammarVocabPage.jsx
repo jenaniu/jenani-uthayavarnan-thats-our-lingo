@@ -10,7 +10,7 @@ function GrammarVocabPage() {
         <>
             <section className="grammar-vocab" >
                 <PageHeader headerClassName="grammar-vocab__header" headerText="Let's learn some French!"/>
-                <h2>Choose a Category!</h2>
+                <h1 className="grammar-vocab__subheader">Choose a Category!</h1>
                 <article className="choose-lang__buttons">
                     <Button buttonClassName="choose-lang__button" buttonText="Vocabulary" />
                     <Button buttonClassName="choose-lang__button" buttonText="Grammar" />

@@ -4,6 +4,16 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 
+@keyframes example {
+    0% {
+        color:$color-primary-text;
+    }
+
+    100% {
+        color: $color-primary-label;
+    }
+}
+
 .grammar-vocab {
     display: flex;
     flex-direction: column;
@@ -12,8 +22,17 @@
 
     &__header {
         @include header-text;
+        color: $color-primary-text;
     }
-    
+
+    &__subheader {
+        color: $color-primary-text;
+        animation-name: example;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
     &__buttons {
         display: flex;
         width: 100%;
@@ -25,11 +44,12 @@
             width: 100%;
             display: flex;
             gap: 1rem;
+
             .choose-lang__button {
                 width: 100%;
             }
 
         }
-        
+
     }
 }
