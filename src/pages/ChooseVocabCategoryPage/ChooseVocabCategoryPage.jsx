@@ -15,16 +15,16 @@ function ChooseVocabCategoryPage() {
 
     return (
         <>
-            <section className="choose-lang" >
-                <PageHeader headerClassName="choose-lang__header" headerText="Choose a vocabulary category"/>
-                <article className="choose-lang__buttons">
-                    <figure className="choose-lang__buttons--wrapper">
-                        <Button buttonClassName="choose-lang__button" onClick={handleClick} buttonText="Foods" />
-                        <Button buttonClassName="choose-lang__button" onClick={handleClick} buttonText="Hi & Goodbye" />
+            <section className="choose-vocab" >
+                <PageHeader headerClassName="choose-vocab__header" headerText="Choose a vocabulary category"/>
+                <article className="choose-vocab__buttons">
+                    <figure className="choose-vocab__buttons--wrapper">
+                        <Button buttonClassName="choose-vocab__button" onClick={handleClick} buttonText="Foods" />
+                        <Button buttonClassName="choose-vocab__button" onClick={handleClick} buttonText="Hi & Goodbye" />
                     </figure>
-                    <figure className="choose-lang__buttons--wrapper">
-                        <Button buttonClassName="choose-lang__button" onClick={handleClick} buttonText="Colours" />
-                        <Button buttonClassName="choose-lang__button" onClick={handleClick} buttonText="Animals" />
+                    <figure className="choose-vocab__buttons--wrapper">
+                        <Button buttonClassName="choose-vocab__button" onClick={handleClick} buttonText="Colours" />
+                        <Button buttonClassName="choose-vocab__button" onClick={handleClick} buttonText="Animals" />
                     </figure>
                 </article>
             </section>
