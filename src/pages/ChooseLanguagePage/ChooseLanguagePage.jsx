@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 function ChooseLanguagePage() {
     const navigate = useNavigate()
 
-    function handleClick (language) {
+    const handleClick = (language) => {
         navigate(`/${language}/subject`);
         return
       };

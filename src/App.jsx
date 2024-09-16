@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar'
 import ChooseLanguagePage from './pages/ChooseLanguagePage/ChooseLanguagePage'
 import GrammarVocabPage from './pages/GrammarVocabPage/GrammarVocabPage'
 import ChooseVocabCategoryPage from './pages/ChooseVocabCategoryPage/ChooseVocabCategoryPage'
+import FlashcardPage from './pages/FlashcardPage/FlashcardPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/languages" element={<ChooseLanguagePage />} />
           <Route path="/:langFromParams/subject" element={<GrammarVocabPage />} />
           <Route path="/:langFromParams/vocabulary" element={<ChooseVocabCategoryPage />} />
+          <Route path="/:langFromParams/flashcards/:categoryFromParams" element={<FlashcardPage />} />
         </Routes>
       </BrowserRouter>
     </>
