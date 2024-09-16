@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import Button from '../../components/Button/Button'
 import './ChooseVocabCategoryPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -11,16 +11,20 @@ function ChooseVocabCategoryPage() {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate()
 
+    const { langFromParams } = useParams();
+    console.log(langFromParams);
+    let currentLanguage = langFromParams
+    console.log(currentLanguage)
+
     const handleClick = () => {
-        navigate('/vocab-categories');
-        return
-    };
+        navigate('/')
+    }
 
     useEffect(() => {
         const getVocabCategories = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8080/vocabulary/french"
+                    `http://localhost:8080/vocabulary/${currentLanguage}`
                 );
                 // const categoryChoices = response.data.map((category) => ({
                 //     id: category.id,

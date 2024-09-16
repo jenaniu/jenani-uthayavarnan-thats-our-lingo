@@ -9,7 +9,6 @@ import GrammarVocabPage from './pages/GrammarVocabPage/GrammarVocabPage'
 import ChooseVocabCategoryPage from './pages/ChooseVocabCategoryPage/ChooseVocabCategoryPage'
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
       <BrowserRouter>
@@ -17,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/languages" element={<ChooseLanguagePage />} />
-          <Route path="/subject" element={<GrammarVocabPage />} />
-          <Route path="/vocab-categories" element={<ChooseVocabCategoryPage />} />
+          <Route path="/:langFromParams/subject" element={<GrammarVocabPage />} />
+          <Route path="/:langFromParams/vocabulary" element={<ChooseVocabCategoryPage />} />
         </Routes>
       </BrowserRouter>
     </>
