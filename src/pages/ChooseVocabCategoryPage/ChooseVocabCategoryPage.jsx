@@ -12,9 +12,8 @@ function ChooseVocabCategoryPage() {
     const navigate = useNavigate()
 
     const { langFromParams } = useParams();
-    console.log(langFromParams);
     let currentLanguage = langFromParams
-    console.log(currentLanguage)
+
 
     const handleClick = (category) => {
         navigate(`/${currentLanguage}/flashcards/${category}`)

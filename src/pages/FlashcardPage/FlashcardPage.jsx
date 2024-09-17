@@ -8,48 +8,57 @@ import Flashcard from '../../components/Flashcard/Flashcard'
 
 
 function FlashcardPage() {
-    const [categories, setCategories] = useState([]);
+    const [vocabulary, setVocabulary] = useState(null);
+    const [currentCard, setCurrentCard] = useState(0);
     const navigate = useNavigate()
 
     const { langFromParams, categoryFromParams } = useParams();
-    console.log(langFromParams);
     let currentLanguage = langFromParams
     let currentCategory = categoryFromParams
-    console.log(currentLanguage)
 
     const handleClick = () => {
-        navigate('/')
+
+        if (currentCard < vocabulary.length - 1) {
+            setCurrentCard(currentCard + 1);
+        }
+        else {
+            navigate(-1)
+
+        }
     }
 
     useEffect(() => {
-        const getVocabCategories = async () => {
+        const getVocabWords = async () => {
             try {
                 const response = await axios.get(
                     `http://localhost:8080/vocabulary/${currentLanguage}/${currentCategory}`
                 );
-               
-                setCategories(response.data);
-                
+
+                setVocabulary(response.data);
             }
             catch (error) {
                 console.error("Error getting vocabulary category data", error);
             }
         };
-        getVocabCategories();
-    }, [langFromParams, categoryFromParams]);
+        getVocabWords();
+    }, []);
 
+    if(vocabulary===null) {
+        return <div>Flashcards Loading...</div>
+    }
 
     return (
         <>
             <section className="choose-vocab" >
-                <PageHeader headerClassName="choose-vocab__header" headerText="Choose a vocabulary category" />
+                <PageHeader headerClassName="choose-vocab__header" headerText="Let's practice" />
                 <article className="choose-vocab__buttons">
-                            {categories.map((vocabulary) => (
-                                // console.log(vocabulary.vocab_word)
-                                // console.log(vocabulary.translation)
-                                <Flashcard key={vocabulary.id} vocabWord={vocabulary.vocab_word} translation={vocabulary.translation} />
-                            ))}
+                    {/* {categories.map((vocabulary) => (
+                        // console.log(vocabulary.vocab_word)
+                        // console.log(vocabulary.translation) */}
+                        <Flashcard key={vocabulary[currentCard].id} vocabWord={vocabulary[currentCard].vocab_word} translation={vocabulary[currentCard].translation} />
+                    {/* ))} */}
                     <figure className="choose-vocab__buttons--wrapper">
+                        <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={handleClick} />
                     </figure>
                 </article>
             </section>

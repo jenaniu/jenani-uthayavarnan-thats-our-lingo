@@ -22,10 +22,6 @@ body {
     
     &__header {
         @include header-text;
-        overflow: hidden;
-        white-space: nowrap;
-        letter-spacing: .15em;
-     
     }
 
     &__button {
