@@ -10,22 +10,12 @@ import Flashcard from '../../components/Flashcard/Flashcard'
 function FlashcardPage() {
     const [vocabulary, setVocabulary] = useState(null);
     const [currentCard, setCurrentCard] = useState(0);
+    const [cardsComplete, setCardsComplete] = useState(false)
     const navigate = useNavigate()
 
     const { langFromParams, categoryFromParams } = useParams();
     let currentLanguage = langFromParams
     let currentCategory = categoryFromParams
-
-    const handleClick = () => {
-
-        if (currentCard < vocabulary.length - 1) {
-            setCurrentCard(currentCard + 1);
-        }
-        else {
-            navigate(-1)
-
-        }
-    }
 
     useEffect(() => {
         const getVocabWords = async () => {
@@ -42,6 +32,26 @@ function FlashcardPage() {
         };
         getVocabWords();
     }, []);
+
+    useEffect(() => {
+        if (cardsComplete) {
+            localStorage.setItem(`Flashcards ${currentLanguage} ${currentCategory} Complete`, cardsComplete);
+            navigate(-1)
+        }
+    }, [cardsComplete]);
+
+    const handleClick = () => {
+
+        if (currentCard < vocabulary.length - 1) {
+            setCurrentCard(currentCard + 1);
+        }
+        else {
+            setCardsComplete(true)
+        }
+    }
+    
+    
+    
 
     if(vocabulary===null) {
         return <div>Flashcards Loading...</div>

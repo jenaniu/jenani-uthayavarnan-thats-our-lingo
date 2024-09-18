@@ -13,6 +13,7 @@ function ChooseVocabCategoryPage() {
 
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
+    const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
 
     const handleClick = (category) => {
@@ -35,6 +36,8 @@ function ChooseVocabCategoryPage() {
         getVocabCategories();
     }, []);
 
+    const currentLevelFilter = categories.filter(category => category.level <= currentLevel)
+    console.log(currentLevelFilter)
 
     return (
         <>
@@ -42,7 +45,7 @@ function ChooseVocabCategoryPage() {
                 <PageHeader headerClassName="choose-vocab__header" headerText="Choose a vocabulary category" />
                 <article className="choose-vocab__buttons">
                     <figure className="choose-vocab__buttons--wrapper">
-                            {categories.map((category) => (
+                            {currentLevelFilter.map((category) => (
                                 <Button key={category.id} buttonText={category.vocab_category} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
                             ))}
                     </figure>

@@ -34,6 +34,7 @@ function GrammarQuizPage() {
     useEffect(() => {
         if (showResult) {
             alert(score);
+            localStorage.setItem(`grammar quiz score`, score);
             navigate('/');
         }
     }, [showResult]);
