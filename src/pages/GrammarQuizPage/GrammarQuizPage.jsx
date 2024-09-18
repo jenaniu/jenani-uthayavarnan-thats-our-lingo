@@ -9,7 +9,7 @@ import GrammarQuizQuestion from '../../components/GrammarQuizQuestion/GrammarQui
 function GrammarQuizPage() {
     const [quiz, setQuiz] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState('');
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
 
@@ -58,6 +58,7 @@ function GrammarQuizPage() {
 
     const onClickNext = () => {
         console.log(selectedAnswer)
+    
         if (selectedAnswer) { 
             console.log("cheese");
             setScore((prevScore) => prevScore + 100);
@@ -71,11 +72,7 @@ function GrammarQuizPage() {
             console.log(score)
             setShowResult(true)
         }
-        
-        // if (showResult) {
-        //     alert(score);
-        //     navigate('/')
-        // }
+
     }
 
 
@@ -87,7 +84,7 @@ function GrammarQuizPage() {
                 <GrammarQuizQuestion key={option} option={option} onClick={() => onAnswerClicked(option)}/>
                 ))}
                     <figure className="choose-vocab__buttons--wrapper">
-                        <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext}/>
+                        <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext} disabled={selectedAnswer===null}/>
                     </figure>
             </section>
         </>

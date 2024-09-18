@@ -5,9 +5,9 @@ function GrammarQuizQuestion({ option, onClick }) {
     // const [flip, setFlip] = useState(false)
     return (
         <>
-            <figure className="quiz__wrapper" onClick={onClick}>
+            <figure className="quiz__option" onClick={onClick}>
                 
-                <div className="quiz__option">
+                <div className="quiz__option--text">
                     {option}
                 </div>
          
