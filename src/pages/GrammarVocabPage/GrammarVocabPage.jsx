@@ -3,20 +3,23 @@ import Button from '../../components/Button/Button'
 import './GrammarVocabPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function GrammarVocabPage() {
-
+    const [level, setLevel] = useState(1);
+    
     let navigate = useNavigate();
-
+    
     const { langFromParams } = useParams();
     console.log(langFromParams);
     let currentLanguage = langFromParams
-
+    
     const handleClick = () => {
         navigate(`/${currentLanguage}/vocabulary`)
     }
+
+    localStorage.setItem(`${currentLanguage} Level`, level);
 
     return (
         <>
