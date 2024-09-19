@@ -15,9 +15,15 @@ function GrammarVocabPage() {
     console.log(langFromParams);
     let currentLanguage = langFromParams
     
-    const handleClick = () => {
+    const handleVocabClick = () => {
         navigate(`/${currentLanguage}/vocabulary`)
     }
+
+    const handleGrammarClick = () => {
+        navigate(`/${langFromParams}/grammar`)
+    }
+
+ 
 
     localStorage.setItem(`${currentLanguage} Level`, level);
 
@@ -27,8 +33,8 @@ function GrammarVocabPage() {
                 <PageHeader headerClassName="grammar-vocab__header" headerText={`Let's learn some ${currentLanguage}!`} />
                 <h1 className="grammar-vocab__subheader">Choose a Category!</h1>
                 <article className="choose-lang__buttons">
-                    <Button buttonClassName="choose-lang__button" buttonText="Vocabulary" onClick={handleClick} />
-                    <Button buttonClassName="choose-lang__button" buttonText="Grammar" onClick={handleClick} />
+                    <Button buttonClassName="choose-lang__button" buttonText="Vocabulary" onClick={handleVocabClick} />
+                    <Button buttonClassName="choose-lang__button" buttonText="Grammar" onClick={handleGrammarClick} />
                 </article>
             </section>
         </>

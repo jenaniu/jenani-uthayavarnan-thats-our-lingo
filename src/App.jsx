@@ -9,6 +9,8 @@ import GrammarVocabPage from './pages/GrammarVocabPage/GrammarVocabPage'
 import ChooseVocabCategoryPage from './pages/ChooseVocabCategoryPage/ChooseVocabCategoryPage'
 import FlashcardPage from './pages/FlashcardPage/FlashcardPage'
 import GrammarQuizPage from './pages/GrammarQuizPage/GrammarQuizPage'
+import ChooseGrammarCategoryPage from './pages/ChooseGrammarCategoryPage/ChooseGrammarCategoryPage'
+import GrammarConceptPage from './pages/GrammarConceptPage/GrammarConceptPage'
 
 function App() {
   return (
@@ -21,7 +23,10 @@ function App() {
           <Route path="/:langFromParams/subject" element={<GrammarVocabPage />} />
           <Route path="/:langFromParams/vocabulary" element={<ChooseVocabCategoryPage />} />
           <Route path="/:langFromParams/flashcards/:categoryFromParams" element={<FlashcardPage />} />
-          <Route path="/grammar/quiz" element={<GrammarQuizPage />} />
+          <Route path="/:langFromParams/grammar" element={<ChooseGrammarCategoryPage />} />
+          <Route path="/:langFromParams/grammar/:idFromParams" element={<GrammarConceptPage />} />
+          <Route path="/:langFromParams/grammar/quiz" element={<GrammarQuizPage />} />
+          
         </Routes>
       </BrowserRouter>
     </>
