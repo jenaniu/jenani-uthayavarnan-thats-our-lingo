@@ -10,11 +10,13 @@ function GrammarVocabPage() {
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
     const [level, setLevel] = useState(() => {
-        const currentLevel = localStorage.getItem(`${currentLanguage} level`)
+        const currentLevel = localStorage.getItem(`${currentLanguage} Level`)
         return currentLevel ? parseInt(currentLevel, 10) : 1
     });
-    localStorage.setItem(`${currentLanguage} Level`, level);
     
+    useEffect(() => {
+        localStorage.setItem(`${currentLanguage} Level`, level);
+    }, [level])
     let navigate = useNavigate();
     
     

@@ -12,8 +12,6 @@ function FlashcardPage() {
     const [currentCard, setCurrentCard] = useState(0);
     const [cardsComplete, setCardsComplete] = useState(false)
     const navigate = useNavigate()
-    const location = useLocation();
-    const level = location.state
     const { langFromParams, categoryFromParams } = useParams();
     let currentLanguage = langFromParams
     let currentCategory = categoryFromParams
