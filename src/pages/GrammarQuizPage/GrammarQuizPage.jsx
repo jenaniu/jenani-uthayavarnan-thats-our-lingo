@@ -14,12 +14,15 @@ function GrammarQuizPage() {
     const [showResult, setShowResult] = useState(false);
 
     const navigate = useNavigate();
+    const { langFromParams } = useParams();
+    let currentLanguage = langFromParams
+    const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
     useEffect(() => {
         const getQuizQuestions = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/grammar/quiz/1`
+                    `http://localhost:8080/grammar/quiz/${currentLevel}`
                 );
                 setQuiz(response.data);
             }

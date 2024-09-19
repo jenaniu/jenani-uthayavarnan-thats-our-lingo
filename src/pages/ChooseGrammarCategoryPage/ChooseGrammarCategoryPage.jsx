@@ -20,6 +20,10 @@ function ChooseGrammarCategoryPage() {
         navigate(`/${currentLanguage}/grammar/${category}`)
     };
 
+    const handleTestClick = () => {
+        navigate(`/${currentLanguage}/grammar/quiz`)
+    };
+
     useEffect(() => {
         const getGrammarCategories = async () => {
             try {
@@ -50,6 +54,7 @@ function ChooseGrammarCategoryPage() {
                             ))}
                     </figure>
                     <figure className="choose-vocab__buttons--wrapper">
+                    <Button buttonText="Test your knowledge!" buttonClassName="choose-vocab__button" onClick={() => handleTestClick()} />
                     </figure>
                 </article>
             </section>
