@@ -1,6 +1,6 @@
 import Button from '../../components/Button/Button'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './GrammarQuizPage.scss'
@@ -9,14 +9,18 @@ import GrammarQuizQuestion from '../../components/GrammarQuizQuestion/GrammarQui
 const baseURL = import.meta.env.VITE_API_URL;
 
 function GrammarQuizPage() {
+    const location = useLocation();
+    const levelFromNavigation = location.state
+    const navigate = useNavigate();
+    const { langFromParams } = useParams();
+
     const [quiz, setQuiz] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
-
-    const navigate = useNavigate();
-    const { langFromParams } = useParams();
+    const [level, setLevel] = useState(levelFromNavigation)
+   
     let currentLanguage = langFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
@@ -40,13 +44,30 @@ function GrammarQuizPage() {
         if (showResult) {
             alert(score);
             localStorage.setItem(`grammar quiz score`, score);
-            navigate('/');
-        }
+            
+            if (score > 300) {
+                levelUp()
+            } 
+        }   
     }, [showResult]);
+
+    useEffect(() => {
+        if (level > 1) {
+
+            localStorage.setItem(`${currentLanguage} Level`, level)
+            alert("you leveled up!") 
+           navigate('/');
+        }
+    }, [level, navigate, currentLanguage]);
+
+    const levelUp = () => {
+        setLevel((prevLevel) => prevLevel + 1);
+        alert(`Level increased to: ${level + 1}`)
+    }
     
     if(quiz===null) {
         return <div>Quiz Loading...</div>
-    }
+    };
 
     const options = JSON.parse(quiz[currentQuestion].options);
  

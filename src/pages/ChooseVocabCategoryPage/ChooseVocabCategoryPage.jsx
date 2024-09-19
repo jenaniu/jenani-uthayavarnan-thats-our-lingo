@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import Button from '../../components/Button/Button'
 import './ChooseVocabCategoryPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -13,6 +13,9 @@ function ChooseVocabCategoryPage() {
 
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
+    const location = useLocation();
+    const level = location.state
+    console.log(level)
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
 

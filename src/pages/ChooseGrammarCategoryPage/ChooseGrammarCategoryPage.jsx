@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet'
 import Button from '../../components/Button/Button'
 import './ChooseGrammarCategoryPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -10,10 +10,12 @@ import axios from 'axios'
 function ChooseGrammarCategoryPage() {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate()
+    const location = useLocation();
+    const level = location.state
 
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
-    const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
+    // const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
 
     const handleClick = (category) => {
@@ -21,7 +23,7 @@ function ChooseGrammarCategoryPage() {
     };
 
     const handleTestClick = () => {
-        navigate(`/${currentLanguage}/grammar/quiz`)
+        navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
     };
 
     useEffect(() => {
@@ -40,7 +42,7 @@ function ChooseGrammarCategoryPage() {
         getGrammarCategories();
     }, []);
 
-    const currentLevelFilter = categories.filter(category => category.level <= currentLevel)
+    const currentLevelFilter = categories.filter(category => category.level <= level)
     console.log(currentLevelFilter)
 
     return (

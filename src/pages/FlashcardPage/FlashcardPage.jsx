@@ -1,7 +1,7 @@
 import Button from '../../components/Button/Button'
 import './FlashcardPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Flashcard from '../../components/Flashcard/Flashcard'
@@ -12,7 +12,8 @@ function FlashcardPage() {
     const [currentCard, setCurrentCard] = useState(0);
     const [cardsComplete, setCardsComplete] = useState(false)
     const navigate = useNavigate()
-
+    const location = useLocation();
+    const level = location.state
     const { langFromParams, categoryFromParams } = useParams();
     let currentLanguage = langFromParams
     let currentCategory = categoryFromParams
@@ -35,7 +36,7 @@ function FlashcardPage() {
 
     useEffect(() => {
         if (cardsComplete) {
-            localStorage.setItem(`Flashcards ${currentLanguage} ${currentCategory} Complete`, cardsComplete);
+            // localStorage.setItem(`Flashcards ${currentLanguage} ${currentCategory} Complete`, cardsComplete);
             navigate(-1)
         }
     }, [cardsComplete]);

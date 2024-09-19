@@ -7,25 +7,28 @@ import { useEffect, useState } from 'react';
 
 
 function GrammarVocabPage() {
-    const [level, setLevel] = useState(1);
+    const { langFromParams } = useParams();
+    let currentLanguage = langFromParams
+    const [level, setLevel] = useState(() => {
+        const currentLevel = localStorage.getItem(`${currentLanguage} level`)
+        return currentLevel ? parseInt(currentLevel, 10) : 1
+    });
+    localStorage.setItem(`${currentLanguage} Level`, level);
     
     let navigate = useNavigate();
     
-    const { langFromParams } = useParams();
-    console.log(langFromParams);
-    let currentLanguage = langFromParams
+    
     
     const handleVocabClick = () => {
-        navigate(`/${currentLanguage}/vocabulary`)
+        navigate(`/${currentLanguage}/vocabulary`,  { state: level } )
     }
 
     const handleGrammarClick = () => {
-        navigate(`/${langFromParams}/grammar`)
+        navigate(`/${langFromParams}/grammar`,  { state: level } )
     }
 
  
 
-    localStorage.setItem(`${currentLanguage} Level`, level);
 
     return (
         <>
