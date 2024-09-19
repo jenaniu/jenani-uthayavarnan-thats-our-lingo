@@ -22,7 +22,7 @@ function HomePage() {
 
 
       <section className="homepage" >
-        <span className="homepage__header">That's Our Lingo!</span>
+        <span className="homepage__header">Welcome to That's Our Lingo!</span>
         <Button buttonClassName="homepage__button" buttonText="Get Started!" buttonTextClassName="homepage__button" onClick={handleClick} />
       </section>
     </>

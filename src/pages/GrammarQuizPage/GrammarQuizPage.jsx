@@ -3,8 +3,10 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import './GrammarQuizPage.scss'
 import GrammarQuizQuestion from '../../components/GrammarQuizQuestion/GrammarQuizQuestion'
 
+const baseURL = import.meta.env.VITE_API_URL;
 
 function GrammarQuizPage() {
     const [quiz, setQuiz] = useState(null)
@@ -83,7 +85,8 @@ function GrammarQuizPage() {
     return (
         <>
             <section className="quiz" >
-                <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].quiz_question} />
+                <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
+                <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
                 {options.map((option) => (
                 <GrammarQuizQuestion key={option} option={option} onClick={() => onAnswerClicked(option)}/>
                 ))}
