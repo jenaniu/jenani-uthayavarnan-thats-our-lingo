@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import './GrammarQuizPage.scss'
 import GrammarQuizQuestion from '../../components/GrammarQuizQuestion/GrammarQuizQuestion'
+import Modal from '../../components/Modal/Modal'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -21,6 +22,7 @@ function GrammarQuizPage() {
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [level, setLevel] = useState(levelFromNavigation)
+    const [modalOpen, setModalOpen] = useState(false);
 
     let currentLanguage = langFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
@@ -44,11 +46,11 @@ function GrammarQuizPage() {
     useEffect(() => {
         if (showResult) {
             alert(score)
-            navigate('/');
 
             if (score > 300) {
                 levelUp()
-
+            } else {
+                navigate('/');
             }
             setScore(0);
             setShowResult(false)
@@ -59,14 +61,15 @@ function GrammarQuizPage() {
     useEffect(() => {
         if (level > currentLevel) {
             localStorage.setItem(`${currentLanguage} Level`, level)
-            alert("you leveled up!")
-            navigate('/');
+            // alert("you leveled up!")
+            // navigate('/');
         }
     }, [level, navigate, currentLanguage]);
 
     const levelUp = () => {
         setLevel((prevLevel) => prevLevel + 1);
-        alert(`Level increased to: ${level + 1}`)
+        setModalOpen(true)
+        // alert(`Level increased to: ${level + 1}`)
     }
 
     if (quiz === null) {
@@ -108,6 +111,14 @@ function GrammarQuizPage() {
 
     }
 
+    const closeModal = () => {
+        setModalOpen(false)
+    }
+
+    const openModal = () => {
+        setModalOpen(true)
+    }
+
 
     return (
         <>
@@ -121,6 +132,10 @@ function GrammarQuizPage() {
                     <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext}/>
                 )}
             </section>
+
+            {modalOpen && (
+                <Modal modalHeader="You leveled up!" modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
+            )}
         </>
     )
 }
