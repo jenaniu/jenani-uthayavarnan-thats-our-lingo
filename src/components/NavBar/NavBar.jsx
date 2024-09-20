@@ -5,15 +5,15 @@ function NavBar() {
         <>
             <section className="nav-bar">
                 <Link to="/" className="nav-bar__logo-link">
-                    <span className="nav-bar__logo"> That's Our Lingo! </span>
+                    <h1 className="nav-bar__logo"> That's Our Lingo! </h1>
                 </Link>
                 <div className="nav-bar__link">
                     <Link to="/" className="nav-bar__link--grammar">
-                        <h2>Grammar</h2>
+                        <h4>Grammar</h4>
                     </Link>
 
                     <Link to="/" className="nav-bar__link--vocab">
-                        <h2>Vocabulary</h2>
+                        <h4>Vocabulary</h4>
                     </Link>
                 </div>
             </section>

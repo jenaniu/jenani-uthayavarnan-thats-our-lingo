@@ -6,18 +6,20 @@
 .nav-bar {
     background-color: $light-lilac;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     color: $color-primary-text;
-    padding: 0.5rem 1rem;
+    padding: 1.5rem;
 
     &__logo-link {
         text-decoration: none;
+        height: 100%;
     }
 
     &__link {
         display: flex;
-        gap: 1rem;
+        padding-top: 1rem;
+        gap: 2rem;
         
         &--grammar {
             text-decoration: none;
