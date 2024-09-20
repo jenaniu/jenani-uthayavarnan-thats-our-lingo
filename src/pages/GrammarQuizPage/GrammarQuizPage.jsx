@@ -61,8 +61,6 @@ function GrammarQuizPage() {
     useEffect(() => {
         if (level > currentLevel) {
             localStorage.setItem(`${currentLanguage} Level`, level)
-            // alert("you leveled up!")
-            // navigate('/');
         }
     }, [level, navigate, currentLanguage]);
 
@@ -134,7 +132,7 @@ function GrammarQuizPage() {
             </section>
 
             {modalOpen && (
-                <Modal modalHeader="You leveled up!" modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
+                <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
             )}
         </>
     )

@@ -25,10 +25,10 @@
     color: $lingo-red;
     font-size: 4rem;
     font-weight: bold;
-    height: 100%;
-    padding: 2rem;
+    max-height: 100%;
+    margin: 1rem;
     text-align: center;
-    line-height: 2.5rem;
+ 
 }
 
 @mixin side-padding-mobile {
