@@ -8,7 +8,7 @@ function Modal({ modalHeader, modalText, closeModal }) {
   const navigate = useNavigate();
 
   const onClick = () => {
-    closeModal()
+    closeModal();
     navigate('/');
   }
   return (

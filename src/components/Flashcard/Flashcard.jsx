@@ -8,12 +8,12 @@ function Flashcard({ vocabWord, translation }) {
             <figure className={`flashcard ${flip ? 'flip' : ''}`} onClick={() => setFlip(!flip)}>
                 
                 <div className="flashcard__front">
-                    {vocabWord}
+                    <h3>{vocabWord}</h3>
                     {/* <p className="flashcard__title">{ flip ? translation : vocabWord }</p> */}
                 </div>
                 {/* <p className="flashcard__translation">{translation}</p> */}
                 <div className="flashcard__back">
-                    {translation}
+                <h3>{translation}</h3>
                     {/* <p className="flashcard__title">{ flip ? translation : vocabWord }</p> */}
                 </div>
             </figure>
