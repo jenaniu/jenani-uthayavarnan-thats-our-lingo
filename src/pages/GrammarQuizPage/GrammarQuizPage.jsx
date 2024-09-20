@@ -17,10 +17,11 @@ function GrammarQuizPage() {
     const [quiz, setQuiz] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [answered, setAnswered] = useState(false)
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [level, setLevel] = useState(levelFromNavigation)
-   
+
     let currentLanguage = langFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
@@ -42,21 +43,24 @@ function GrammarQuizPage() {
 
     useEffect(() => {
         if (showResult) {
-            alert(score);
-            localStorage.setItem(`grammar quiz score`, score);
-            
+            alert(score)
+            navigate('/');
+
             if (score > 300) {
                 levelUp()
-            } 
-        }   
+
+            }
+            setScore(0);
+            setShowResult(false)
+        }
+
     }, [showResult]);
 
     useEffect(() => {
-        if (level > 1) {
-
+        if (level > currentLevel) {
             localStorage.setItem(`${currentLanguage} Level`, level)
-            alert("you leveled up!") 
-           navigate('/');
+            alert("you leveled up!")
+            navigate('/');
         }
     }, [level, navigate, currentLanguage]);
 
@@ -64,16 +68,18 @@ function GrammarQuizPage() {
         setLevel((prevLevel) => prevLevel + 1);
         alert(`Level increased to: ${level + 1}`)
     }
-    
-    if(quiz===null) {
+
+    if (quiz === null) {
         return <div>Quiz Loading...</div>
     };
 
     const options = JSON.parse(quiz[currentQuestion].options);
- 
+
     const onAnswerClicked = (option) => {
         console.log(option)
-        if (option === quiz[currentQuestion].correct_answer){
+        setAnswered(true)
+        console.log(answered)
+        if (option === quiz[currentQuestion].correct_answer) {
             console.log("correct!")
             setSelectedAnswer(true)
         }
@@ -85,8 +91,8 @@ function GrammarQuizPage() {
 
     const onClickNext = () => {
         console.log(selectedAnswer)
-    
-        if (selectedAnswer) { 
+        setAnswered(false)
+        if (selectedAnswer) {
             console.log("cheese");
             setScore((prevScore) => prevScore + 100);
         }
@@ -109,11 +115,11 @@ function GrammarQuizPage() {
                 <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
                 <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
                 {options.map((option) => (
-                <GrammarQuizQuestion key={option} option={option} onClick={() => onAnswerClicked(option)}/>
+                    <GrammarQuizQuestion correct={quiz[currentQuestion].correct_answer} key={option} answered={answered} selectedAnswer={selectedAnswer} option={option} onClick={answered===false? () => onAnswerClicked(option) : null} />
                 ))}
-                    <figure className="choose-vocab__buttons--wrapper">
-                        <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext} disabled={selectedAnswer===null}/>
-                    </figure>
+                {answered && (
+                    <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext}/>
+                )}
             </section>
         </>
     )

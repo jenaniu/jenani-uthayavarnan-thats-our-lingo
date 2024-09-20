@@ -15,7 +15,19 @@
         background-color: $color-primary-cta-hover;
     }
 
+    &--disabled {
+        background-color: $color-primary-cta-hover;
+    }
+
     &--text {
         padding: 0.5rem;
+    }
+
+    &--correct {
+        background-color: $color-flashcard-background;
+    }
+
+    &--wrong {
+        background-color: red;
     }
 }
