@@ -22,9 +22,7 @@
 }
 
 @mixin header-text {
-    color: $lingo-red;
-    font-size: 4rem;
-    font-weight: bold;
+    color: $color-primary-text;
     max-height: 100%;
     margin: 1rem;
     text-align: center;

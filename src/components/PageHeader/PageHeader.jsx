@@ -1,8 +1,9 @@
+import './PageHeader.scss'
 function PageHeader ({headerClassName, headerText}) {
     return (
         <>
         
-        <span className={`header ${headerClassName}`}>{headerText}</span>
+        <h1 className={`header ${headerClassName}`}>{headerText}</h1>
 
         </>
     )

@@ -7,9 +7,9 @@ function GrammarQuizQuestion({ correct, option, onClick, answered, selectedAnswe
         <>
             <figure className={`quiz__option ${answered? "quiz__option--disabled" : ""} ${answered===true && option===correct? "quiz__option--correct" : ""} ${answered===true && option!==correct? "quiz__option--wrong" : ""}`} onClick={onClick}>
                 
-                <div className="quiz__option--text">
+                <h3 className="quiz__option--text">
                     {option}
-                </div>
+                </h3>
          
             </figure>
         </>

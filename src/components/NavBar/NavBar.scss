@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     color: $color-primary-text;
-    padding: 1.5rem;
+    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
 
     &__logo-link {
         text-decoration: none;
@@ -18,15 +18,22 @@
 
     &__link {
         display: flex;
+        align-content: center;
+        gap: 0.5rem;
         padding-top: 1rem;
-        gap: 2rem;
+        width: 100%;
         
         &--grammar {
             text-decoration: none;
+            background-color: $color-primary-text-light;
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 2rem;
         }
 
         &--vocab {
-            text-decoration: none;
+            @extend .nav-bar__link--grammar
         }
     }
 }
