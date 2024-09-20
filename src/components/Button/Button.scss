@@ -11,7 +11,7 @@
 }
 .button {
     background-color: $color-primary-cta;
-    color: $color-primary-text;
+    color: $color-primary-text-light;
     border-radius: .375rem;
     height: 3rem;
     // max-width: 100%;
@@ -23,7 +23,7 @@
     &:hover {
         background-color: $color-primary-cta-hover;
         border: none;
-        color: $color-primary-background;
+        color: $color-primary-text-dark;
         cursor: pointer;
         transform: translateY(.25rem);
     }
