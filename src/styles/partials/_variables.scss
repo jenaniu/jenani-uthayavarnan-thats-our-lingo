@@ -1,22 +1,31 @@
-$bright-lilac: #B47AEA;
-$light-lilac: #BD93D8;
-$pale-lilac: #d4d1d6;
-$light-blue: #9799CA;
-$aqua: #7BCDBA;
-$bright-green: #61E294;
-$dark-green: #3c8a5b;
-$lingo-black: #323232;
+$off-lilac-white: #FBFAFF;
+$pale-lilac: #F2EBFB;
+$lilac: #EBD9FC;
+$bright-lilac: #D4BBFC;
+$dark-lilac: #9667E0;
+$dark-purple: #301f4b;
 $lingo-red: #590925;
+$lingo-black: #323232;
+
+// $bright-lilac: #B47AEA;
+// $light-lilac: #BD93D8;
+// $pale-lilac: #d4d1d6;
+// $light-blue: #9799CA;
+// $aqua: #7BCDBA;
+// $bright-green: #61E294;
+// $dark-green: #3c8a5b;
+
+// 
 
 
 
 $color-primary-text: $lingo-red;
 $color-primary-text-dark: $lingo-black;
-$color-primary-text-light: $light-blue;
-$color-primary-cta: $bright-green;
-$color-primary-cta-hover: $dark-green;
-$color-hover: $dark-green;
-$color-primary-label: $bright-lilac;
-$color-flashcard-background: $bright-green;
-$color-primary-background: $pale-lilac;
+$color-primary-text-light: $pale-lilac;
+$color-primary-cta: $dark-purple;
+$color-primary-cta-hover: $dark-lilac;
+$color-hover: $dark-lilac;
+$color-primary-label: $dark-lilac;
+$color-flashcard-background: $bright-lilac;
+$color-primary-background: $off-lilac-white;
 
