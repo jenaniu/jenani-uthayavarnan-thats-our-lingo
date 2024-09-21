@@ -31,7 +31,7 @@ function GrammarQuizPage() {
         const getQuizQuestions = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/grammar/quiz/${currentLevel}`
+                    `${baseURL}/grammar/quiz/${currentLevel}`
                 );
                 setQuiz(response.data);
             }

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Flashcard from '../../components/Flashcard/Flashcard'
 
+const baseURL = import.meta.env.VITE_API_URL
 
 function FlashcardPage() {
     const [vocabulary, setVocabulary] = useState(null);
@@ -20,7 +21,7 @@ function FlashcardPage() {
         const getVocabWords = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/vocabulary/${currentLanguage}/${currentCategory}`
+                    `${baseURL}/vocabulary/${currentLanguage}/${currentCategory}`
                 );
 
                 setVocabulary(response.data);

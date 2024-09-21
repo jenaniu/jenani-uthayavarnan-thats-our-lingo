@@ -6,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 
 function GrammarConceptPage() {
     const [concept, setConcept] = useState(null);
@@ -18,6 +20,7 @@ function GrammarConceptPage() {
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
 
+
     // const handleClick = (category) => {
     //     navigate(`/${currentLanguage}/concept/${category.id}`)
     // };
@@ -26,7 +29,7 @@ function GrammarConceptPage() {
         const getGrammarConcept = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/grammar/concept/${currentConcept}`
+                    `${baseURL}/grammar/concept/${currentConcept}`
                 );
                
                 setConcept(response.data);
