@@ -30,6 +30,7 @@ function ChooseGrammarCategoryPage() {
 
     useEffect(() => {
         const getGrammarCategories = async () => {
+            console.log("Base URL:", baseURL);
             try {
                 const response = await axios.get(
                     `${baseURL}/grammar/${currentLanguage}`
