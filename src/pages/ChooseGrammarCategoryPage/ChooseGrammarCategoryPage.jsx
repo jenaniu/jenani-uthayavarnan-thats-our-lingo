@@ -6,6 +6,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+const baseURL = import.meta.env.VITE_API_URL
+
 
 function ChooseGrammarCategoryPage() {
     const [categories, setCategories] = useState([]);
@@ -30,7 +32,7 @@ function ChooseGrammarCategoryPage() {
         const getGrammarCategories = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/grammar/${currentLanguage}`
+                    `${baseURL}/grammar/${currentLanguage}`
                 );
                
                 setCategories(response.data);
