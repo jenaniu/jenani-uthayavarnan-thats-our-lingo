@@ -5,7 +5,7 @@ function NavBar() {
         <>
             <section className="nav-bar">
                 <Link to="/" className="nav-bar__logo-link">
-                    <h3 className="nav-bar__logo"> That's Our Lingo! </h3>
+                    <img className="nav-bar__logo" src='src/assets/images/Thats-Our-Lingo-Logo-Small.png'></img>
                 </Link>
                 {/* <div className="nav-bar__link">
                     <Link to="/" className="nav-bar__link--grammar">

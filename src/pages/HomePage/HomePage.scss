@@ -24,7 +24,10 @@ body {
     
     &__header {
         @include header-text;
-        padding: 2rem 0rem;
+    }
+
+    &__logo {
+        padding-bottom: 2rem;
     }
 
     &__button {

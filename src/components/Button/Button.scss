@@ -4,11 +4,6 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 
-.choose-lang {
-    &__header {
-        
-    }
-}
 .button {
     background-color: $color-primary-cta;
     color: $color-primary-text-dark;
@@ -23,10 +18,14 @@
     &:hover {
         background-color: $color-primary-cta-hover;
         border: none;
-        color: $color-primary-background;
         cursor: pointer;
+        color: $color-primary-background;
         transform: translateY(.25rem);
     }
+     
+    &:active{
+        cursor: pointer;
+     }
 
     &:focus {
         border: none;
