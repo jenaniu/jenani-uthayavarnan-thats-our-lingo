@@ -6,6 +6,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 
 function ChooseVocabCategoryPage() {
     const [categories, setCategories] = useState([]);
@@ -27,7 +29,7 @@ function ChooseVocabCategoryPage() {
         const getVocabCategories = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/vocabulary/${currentLanguage}`
+                    `${baseURL}/vocabulary/${currentLanguage}`
                 );
                
                 setCategories(response.data);
