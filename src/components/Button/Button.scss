@@ -11,10 +11,10 @@
 }
 .button {
     background-color: $color-primary-cta;
-    color: $color-primary-text-light;
-    border-radius: .375rem;
-    height: 3rem;
-    // max-width: 100%;
+    color: $color-primary-text-dark;
+    border-radius: 2rem;
+    height: 5rem;
+    width: 100%;
     border: none;
     padding: rem;
     transition: 0.3s;
@@ -23,7 +23,7 @@
     &:hover {
         background-color: $color-primary-cta-hover;
         border: none;
-        color: $color-primary-text-dark;
+        color: $color-primary-background;
         cursor: pointer;
         transform: translateY(.25rem);
     }

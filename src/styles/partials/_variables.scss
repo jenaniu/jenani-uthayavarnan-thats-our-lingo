@@ -1,8 +1,9 @@
-$off-lilac-white: #FBFAFF;
-$pale-lilac: #F2EBFB;
+$off-lilac-white: #fefaff;
+$pale-pink-purple: #fbecff;
+$pale-lilac: #e5dbf0;
 $lilac: #EBD9FC;
-$bright-lilac: #D4BBFC;
-$dark-lilac: #9667E0;
+$bright-lilac: #c4aee9;
+$dark-lilac: #ab8adf;
 $dark-purple: #301f4b;
 $lingo-red: #590925;
 $lingo-black: #323232;
@@ -21,9 +22,10 @@ $lingo-black: #323232;
 
 $color-primary-text: $lingo-red;
 $color-primary-text-dark: $lingo-black;
-$color-primary-text-light: $pale-lilac;
-$color-primary-cta: $dark-purple;
+$color-primary-text-light: $pale-lilac; 
+$color-primary-cta: $pale-lilac; 
 $color-primary-cta-hover: $dark-lilac;
+$color-quiz-question-background: $pale-pink-purple;
 $color-hover: $dark-lilac;
 $color-primary-label: $dark-lilac;
 $color-flashcard-background: $bright-lilac;

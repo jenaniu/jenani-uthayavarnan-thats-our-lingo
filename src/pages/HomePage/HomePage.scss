@@ -8,12 +8,14 @@
 
 body {
     background-color: $color-primary-background;
-    
-
+    height: 100vh;
 }
+
 .homepage {
     display: flex;
+    height: 90vh;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 1rem;
     line-height: 2.5rem;
@@ -22,6 +24,7 @@ body {
     
     &__header {
         @include header-text;
+        padding: 2rem 0rem;
     }
 
     &__button {

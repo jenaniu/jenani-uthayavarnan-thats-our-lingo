@@ -120,20 +120,24 @@ function GrammarQuizPage() {
 
     return (
         <>
-            <section className="quiz" >
-                <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
-                <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
-                {options.map((option) => (
-                    <GrammarQuizQuestion correct={quiz[currentQuestion].correct_answer} key={option} answered={answered} selectedAnswer={selectedAnswer} option={option} onClick={answered===false? () => onAnswerClicked(option) : null} />
-                ))}
-                {answered && (
-                    <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={onClickNext}/>
-                )}
-            </section>
+            <article className="quiz">
+                <section className="quiz__wrapper" >
+                    <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
+                    <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
+                    <figure className="quiz__question">
+                        {options.map((option) => (
+                            <GrammarQuizQuestion correct={quiz[currentQuestion].correct_answer} key={option} answered={answered} selectedAnswer={selectedAnswer} option={option} onClick={answered === false ? () => onAnswerClicked(option) : null} />
+                        ))}
+                        {answered && (
+                            <Button buttonClassName="quiz__next" buttonTextClassName="quiz__next--text" buttonText="Next" onClick={onClickNext} />
+                        )}
+                    </figure>
+                </section>
 
-            {modalOpen && (
-                <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
-            )}
+                {modalOpen && (
+                    <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
+                )}
+            </article>
         </>
     )
 }
