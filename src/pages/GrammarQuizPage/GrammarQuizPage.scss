@@ -9,6 +9,14 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+
+    &__score-count {
+        padding: 1rem 2rem;
+        margin: 1rem 0rem;
+        width: 5rem;
+        border-radius: 2rem;
+        background-color: $color-quiz-question-background;
+    }
     &__wrapper {
         .quiz__img { 
             max-width: 50%;

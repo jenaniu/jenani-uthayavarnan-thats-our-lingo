@@ -46,8 +46,9 @@ function GrammarQuizPage() {
 
     useEffect(() => {
         if (showResult) {
-  
-            if (score > 300) {
+            const percentScore = (score/(quiz.length*100))*100
+            console.log(percentScore)
+            if (percentScore >= 70) {
                 levelUp()
             } else {
                 showResultModal()
@@ -100,13 +101,12 @@ function GrammarQuizPage() {
             console.log("cheese");
             setScore((prevScore) => prevScore + 100);
         }
-        console.log(score)
 
         if (currentQuestion < quiz.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
             setSelectedAnswer(null);
         } else {
-            console.log(score)
+
             setShowResult(true)
         }
 
@@ -131,8 +131,8 @@ function GrammarQuizPage() {
     return (
         <>
             <article className="quiz">
+                <h5 className="quiz__score-count">{`${score}`}</h5>
                 <section className="quiz__wrapper" >
-                <h5 className="grammar-vocab__level">{`${score}`}</h5>
                     <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
                     <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
                     <figure className="quiz__question">
@@ -146,7 +146,7 @@ function GrammarQuizPage() {
                 </section>
 
                 {resultModal && (
-                    <Modal modalHeader={`Your score: ${score}`} closeModal={closeResultModal} modalText="Try again to level up!" buttonText="Close" onClick={onLevelUpClick} />
+                    <Modal modalHeader={`Your score: ${score}`} closeModal={closeResultModal} modalText={`Nice try! You need to score ${Math.ceil((quiz.length*0.7)*100)} to level up!`} buttonText="Try again!" onClick={onLevelUpClick} />
                 )}
 
                 {modalOpen && (
