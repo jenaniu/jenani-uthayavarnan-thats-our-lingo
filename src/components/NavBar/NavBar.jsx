@@ -10,16 +10,9 @@ function NavBar() {
                 </Link>
 
                 <Link to="/languages" className="nav-bar__link">
-                    <h5>Languages</h5>
+                    <h5 className="nav-bar__text">Languages</h5>
                 </Link>
 
-                {/* <div className="nav-bar__link">
-                    
-
-                    <Link to="/" className="nav-bar__link--vocab">
-                        <h4>Vocabulary</h4>
-                    </Link>
-                </div> */}
             </section>
         </>
     )

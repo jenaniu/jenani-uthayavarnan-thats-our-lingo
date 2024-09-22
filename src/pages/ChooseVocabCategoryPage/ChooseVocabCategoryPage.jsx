@@ -5,6 +5,7 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { capitalizeLang } from '../../utils/capitalizeLang'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -14,10 +15,9 @@ function ChooseVocabCategoryPage() {
     const navigate = useNavigate()
 
     const { langFromParams } = useParams();
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
     const location = useLocation();
     const level = location.state
-    console.log(level)
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
 
@@ -42,7 +42,6 @@ function ChooseVocabCategoryPage() {
     }, []);
 
     const currentLevelFilter = categories.filter(category => category.level <= currentLevel)
-    console.log(currentLevelFilter)
 
     return (
         <>

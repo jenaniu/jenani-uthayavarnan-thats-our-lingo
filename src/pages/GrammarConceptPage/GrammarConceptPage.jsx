@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ConceptText from '../../components/ConceptText/ConceptText'
+import { capitalizeLang } from '../../utils/capitalizeLang'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -16,7 +17,7 @@ function GrammarConceptPage() {
 
     const { langFromParams } = useParams();
     const { idFromParams } = useParams();
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
     let currentConcept = idFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
@@ -47,7 +48,6 @@ function GrammarConceptPage() {
     }
     
     const { id, concept_text, grammar_concept } = concept[0]
-    console.log(concept)
 
     const onClickNext = () => {
         localStorage.setItem(`${currentLanguage}_${currentConcept}_complete`, true);

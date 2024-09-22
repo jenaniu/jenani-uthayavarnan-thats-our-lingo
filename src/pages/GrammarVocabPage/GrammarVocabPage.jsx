@@ -4,11 +4,12 @@ import './GrammarVocabPage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { capitalizeLang } from "../../utils/capitalizeLang"
 
 
 function GrammarVocabPage() {
     const { langFromParams } = useParams();
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
     const [level, setLevel] = useState(() => {
         const currentLevel = localStorage.getItem(`${currentLanguage} Level`)
         return currentLevel ? parseInt(currentLevel, 10) : 1
@@ -35,8 +36,8 @@ function GrammarVocabPage() {
     return (
         <>
             <section className="grammar-vocab" >
-                <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
-                <PageHeader headerClassName="grammar-vocab__header" headerText={`Let's learn some ${currentLanguage}!`} />
+                <h5 className="grammar-vocab__level">{`${capitalizeLang(currentLanguage)} Level: ${level}`}</h5>
+                <PageHeader headerClassName="grammar-vocab__header" headerText={`Let's learn some ${capitalizeLang(currentLanguage)}!`} />
                 <h1 className="grammar-vocab__subheader">Choose a Category!</h1>
                 <article className="choose-lang__buttons">
                     <Button buttonClassName="choose-lang__button" buttonText="Vocabulary" onClick={handleVocabClick} />

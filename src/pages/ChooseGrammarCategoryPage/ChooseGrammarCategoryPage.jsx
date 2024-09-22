@@ -5,6 +5,7 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { capitalizeLang } from '../../utils/capitalizeLang'
 
 const baseURL = import.meta.env.VITE_API_URL
 
@@ -17,11 +18,8 @@ function ChooseGrammarCategoryPage() {
     const level = location.state
 
     const { langFromParams } = useParams();
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
    
-
-
-
 
     const handleClick = (category) => {
         navigate(`/${currentLanguage}/grammar/${category}`)
@@ -32,17 +30,13 @@ function ChooseGrammarCategoryPage() {
             alert("Quiz coming soon!")
             return
         }
-        if (testReady){
+        else {
             navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
-        } else {
-            alert("Please read the grammar concepts before testing yourself!")
-            return
         }
     };
 
     useEffect(() => {
         const getGrammarCategories = async () => {
-            console.log("Base URL:", baseURL);
             try {
                 const response = await axios.get(
                     `${baseURL}/grammar/${currentLanguage}`
@@ -57,19 +51,9 @@ function ChooseGrammarCategoryPage() {
         getGrammarCategories();
     }, []);
 
-    useEffect(() => {
-        const conceptCompleteCheck = () => {
-            const conceptLocalStore = currentLevelFilter.every((category) => {
-                return localStorage.getItem(`${currentLanguage}_${category.id}_complete`);
-            });
-            console.log(conceptLocalStore)
-            setTestReady(conceptLocalStore);
-        }
-        conceptCompleteCheck();
-    }, [categories])
+    
 
     const currentLevelFilter = categories.filter(category => category.level <= level)
-    console.log(currentLevelFilter)
 
     return (
         <>

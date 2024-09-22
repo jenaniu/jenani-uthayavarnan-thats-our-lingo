@@ -5,6 +5,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Flashcard from '../../components/Flashcard/Flashcard'
+import { capitalizeLang } from '../../utils/capitalizeLang'
 
 const baseURL = import.meta.env.VITE_API_URL
 
@@ -14,7 +15,7 @@ function FlashcardPage() {
     const [cardsComplete, setCardsComplete] = useState(false)
     const navigate = useNavigate()
     const { langFromParams, categoryFromParams } = useParams();
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
     let currentCategory = categoryFromParams
 
     useEffect(() => {
@@ -59,7 +60,7 @@ function FlashcardPage() {
     return (
         <>
             <section className="flashcard-page" >
-                <PageHeader headerClassName="flashcard-page__header" headerText="Let's practice" />
+                <PageHeader headerClassName="flashcard-page__header" headerText="Let's practice!" />
                 <article className="flashcard-page__buttons">
                     
                         <Flashcard key={vocabulary[currentCard].id} vocabWord={vocabulary[currentCard].vocab_word} translation={vocabulary[currentCard].translation} />

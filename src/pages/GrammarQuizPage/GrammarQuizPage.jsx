@@ -6,6 +6,7 @@ import axios from 'axios'
 import './GrammarQuizPage.scss'
 import GrammarQuizQuestion from '../../components/GrammarQuizQuestion/GrammarQuizQuestion'
 import Modal from '../../components/Modal/Modal'
+import { capitalizeLang } from '../../utils/capitalizeLang'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -25,7 +26,7 @@ function GrammarQuizPage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [resultModal, setResultModal] = useState(false);
 
-    let currentLanguage = langFromParams
+    let currentLanguage = capitalizeLang(langFromParams)
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
     useEffect(() => {
@@ -47,13 +48,11 @@ function GrammarQuizPage() {
     useEffect(() => {
         if (showResult) {
             const percentScore = (score/(quiz.length*100))*100
-            console.log(percentScore)
             if (percentScore >= 70) {
                 levelUp()
             } else {
                 showResultModal()
             }
-            
             setShowResult(false)
         }
 
@@ -63,7 +62,7 @@ function GrammarQuizPage() {
         if (level > currentLevel) {
             localStorage.setItem(`${currentLanguage} Level`, level)
         }
-    }, [level, navigate, currentLanguage]);
+    }, [level, currentLanguage]);
 
     const showResultModal = () => {
         setResultModal(true)
@@ -81,24 +80,18 @@ function GrammarQuizPage() {
     const options = JSON.parse(quiz[currentQuestion].options);
 
     const onAnswerClicked = (option) => {
-        console.log(option)
         setAnswered(true)
-        console.log(answered)
         if (option === quiz[currentQuestion].correct_answer) {
-            console.log("correct!")
             setSelectedAnswer(true)
         }
         else {
-            console.log("wrong!")
             setSelectedAnswer(false)
         }
     }
 
     const onClickNext = () => {
-        console.log(selectedAnswer)
         setAnswered(false)
         if (selectedAnswer) {
-            console.log("cheese");
             setScore((prevScore) => prevScore + 100);
         }
 
@@ -106,7 +99,6 @@ function GrammarQuizPage() {
             setCurrentQuestion(currentQuestion + 1);
             setSelectedAnswer(null);
         } else {
-
             setShowResult(true)
         }
 
