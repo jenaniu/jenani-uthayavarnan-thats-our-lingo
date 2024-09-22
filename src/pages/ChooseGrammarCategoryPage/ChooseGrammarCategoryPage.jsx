@@ -28,6 +28,10 @@ function ChooseGrammarCategoryPage() {
     };
 
     const handleTestClick = () => {
+        if (level >= 3 ) {
+            alert("Quiz coming soon!")
+            return
+        }
         if (testReady){
             navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
         } else {
