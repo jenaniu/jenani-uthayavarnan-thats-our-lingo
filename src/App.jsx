@@ -11,6 +11,7 @@ import FlashcardPage from './pages/FlashcardPage/FlashcardPage'
 import GrammarQuizPage from './pages/GrammarQuizPage/GrammarQuizPage'
 import ChooseGrammarCategoryPage from './pages/ChooseGrammarCategoryPage/ChooseGrammarCategoryPage'
 import GrammarConceptPage from './pages/GrammarConceptPage/GrammarConceptPage'
+import Footer from './components/Footer/Footer'
 
 
 
@@ -28,8 +29,8 @@ function App() {
           <Route path="/:langFromParams/grammar" element={<ChooseGrammarCategoryPage />} />
           <Route path="/:langFromParams/grammar/:idFromParams" element={<GrammarConceptPage />} />
           <Route path="/:langFromParams/grammar/quiz" element={<GrammarQuizPage />} />
-          
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )
