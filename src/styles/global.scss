@@ -1,3 +1,9 @@
+@use 'partials/typography' as *;
+@use 'partials/variables' as *;
+@use 'partials/resets' as *;
+@use 'partials/fonts' as *;
+@use 'partials/mixins' as *;
+
 html, body, #root {
     height: 100%;
     margin: 0;
@@ -8,6 +14,8 @@ html, body, #root {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 3rem);
+    background-color: $color-primary-background;
+
   }
   
   #root {

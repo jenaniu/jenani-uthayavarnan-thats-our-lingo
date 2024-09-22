@@ -10,6 +10,10 @@
     align-items: center;
     @include side-padding-mobile;
 
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
     &__header {
         @include header-text;
     }
@@ -21,13 +25,22 @@
         justify-content: center;
         gap: 1rem;
 
+        @include tablet{
+            gap: 2rem;
+        }
+
         &--wrapper {
             width: 100%;
             display: flex;
             gap: 1rem;
-            
+
             .choose-lang__button {
                 width: 100%;
+
+                @include tablet {
+                    height: 8rem;
+                }
+                
             }
 
         }

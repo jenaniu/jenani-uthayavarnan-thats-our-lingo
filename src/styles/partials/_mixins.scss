@@ -32,3 +32,11 @@
 @mixin side-padding-mobile {
     padding: 1rem;
 }
+
+@mixin side-padding-tab-desk {
+    padding: 2rem;
+}
+
+@mixin button-height-tab-desk {
+    height: 8rem;
+}

@@ -6,4 +6,13 @@
 
 .flashcard-page {
     @include side-padding-mobile;
+
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
+    @include desktop {
+        @include side-padding-tab-desk;
+
+    }
 }

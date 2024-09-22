@@ -21,24 +21,32 @@
     @include side-padding-mobile;
 
     &__level {
-        padding: 1rem;
-        margin: 1rem 0rem;
-        align-self: flex-end;
-        background-color: $color-primary-cta-hover;
-        border-radius: 2rem;
+        align-self: end;
+
+        @include tablet {
+            align-self: center;
+        }
     }
 
     &__header {
         @include header-text;
         color: $color-primary-text;
+        align-self: center;
     }
 
     &__subheader {
         color: $color-primary-text;
+        align-self: center;
+        text-align: center;
+        margin-bottom: 1rem;
         animation-name: example;
         animation-duration: 1s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
+
+        @include tablet {
+            margin-bottom: 2rem;
+        }
     }
 
     &__buttons {
@@ -48,16 +56,23 @@
         justify-content: center;
         gap: 1rem;
 
-        &--wrapper {
-            width: 100%;
-            display: flex;
-            gap: 1rem;
+        @include tablet {
+            gap: 2rem;
+            flex-direction: row;
+        }
 
-            .choose-lang__button {
+     
+
+            .grammar-vocab__button {
                 width: 100%;
+
+                @include tablet {
+                    width: 50%;
+                    @include button-height-tab-desk;
+                }
             }
+
 
         }
 
     }
-}

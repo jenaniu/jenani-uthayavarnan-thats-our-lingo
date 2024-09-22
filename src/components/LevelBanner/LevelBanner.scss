@@ -1,0 +1,22 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/resets' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.level {
+    display: flex;
+    background-color: $color-primary-text-light;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    justify-content: center;
+    
+    @include tablet {
+        width: 60%;
+    }
+    &__banner {
+        padding: 0.5rem;
+        align-self: center;
+    }
+}
