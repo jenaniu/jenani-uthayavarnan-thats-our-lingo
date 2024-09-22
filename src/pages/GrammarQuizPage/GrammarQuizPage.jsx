@@ -117,6 +117,11 @@ function GrammarQuizPage() {
         setModalOpen(true)
     }
 
+    const onLevelUpClick= () => {
+        closeModal();
+        navigate(`/${currentLanguage}/subject`)
+      }
+
 
     return (
         <>
@@ -135,7 +140,7 @@ function GrammarQuizPage() {
                 </section>
 
                 {modalOpen && (
-                    <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! `} />
+                    <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! There's some new content unlocked for you!`} buttonText="Check it out!" onClick={onLevelUpClick} />
                 )}
             </article>
         </>

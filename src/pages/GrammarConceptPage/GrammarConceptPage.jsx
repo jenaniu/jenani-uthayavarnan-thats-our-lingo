@@ -50,6 +50,7 @@ function GrammarConceptPage() {
     console.log(concept)
 
     const onClickNext = () => {
+        localStorage.setItem(`${currentLanguage}_${currentConcept}_complete`, true);
         navigate(-1)
     }
     

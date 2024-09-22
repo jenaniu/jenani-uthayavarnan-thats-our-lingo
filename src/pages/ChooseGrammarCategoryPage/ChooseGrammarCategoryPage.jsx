@@ -11,19 +11,29 @@ const baseURL = import.meta.env.VITE_API_URL
 
 function ChooseGrammarCategoryPage() {
     const [categories, setCategories] = useState([]);
+    const [testReady, setTestReady] = useState(false);
     const navigate = useNavigate()
     const location = useLocation();
     const level = location.state
 
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
+   
+
+
+
 
     const handleClick = (category) => {
         navigate(`/${currentLanguage}/grammar/${category}`)
     };
 
     const handleTestClick = () => {
-        navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
+        if (testReady){
+            navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
+        } else {
+            alert("Please read the grammar concepts before testing yourself!")
+            return
+        }
     };
 
     useEffect(() => {
@@ -42,6 +52,17 @@ function ChooseGrammarCategoryPage() {
         };
         getGrammarCategories();
     }, []);
+
+    useEffect(() => {
+        const conceptCompleteCheck = () => {
+            const conceptLocalStore = currentLevelFilter.every((category) => {
+                return localStorage.getItem(`${currentLanguage}_${category.id}_complete`);
+            });
+            console.log(conceptLocalStore)
+            setTestReady(conceptLocalStore);
+        }
+        conceptCompleteCheck();
+    }, [categories])
 
     const currentLevelFilter = categories.filter(category => category.level <= level)
     console.log(currentLevelFilter)

@@ -35,7 +35,6 @@ function FlashcardPage() {
 
     useEffect(() => {
         if (cardsComplete) {
-            // localStorage.setItem(`Flashcards ${currentLanguage} ${currentCategory} Complete`, cardsComplete);
             navigate(-1)
         }
     }, [cardsComplete]);

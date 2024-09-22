@@ -38,6 +38,12 @@
 
         .modal__close {
             margin-top: 1rem;
+            background-color: $color-flashcard-background;
+            width: 50%;
+
+            &:hover {
+                background-color: $color-primary-text;
+            }
         }
     }
 }
