@@ -67,7 +67,6 @@ function GrammarQuizPage() {
     const levelUp = () => {
         setLevel((prevLevel) => prevLevel + 1);
         setModalOpen(true)
-        // alert(`Level increased to: ${level + 1}`)
     }
 
     if (quiz === null) {
