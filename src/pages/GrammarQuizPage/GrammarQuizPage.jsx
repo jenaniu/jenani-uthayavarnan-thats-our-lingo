@@ -23,6 +23,7 @@ function GrammarQuizPage() {
     const [showResult, setShowResult] = useState(false);
     const [level, setLevel] = useState(levelFromNavigation)
     const [modalOpen, setModalOpen] = useState(false);
+    const [resultModal, setResultModal] = useState(false);
 
     let currentLanguage = langFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
@@ -45,14 +46,13 @@ function GrammarQuizPage() {
 
     useEffect(() => {
         if (showResult) {
-            alert(score)
-
+  
             if (score > 300) {
                 levelUp()
             } else {
-                navigate('/');
+                showResultModal()
             }
-            setScore(0);
+            
             setShowResult(false)
         }
 
@@ -63,6 +63,10 @@ function GrammarQuizPage() {
             localStorage.setItem(`${currentLanguage} Level`, level)
         }
     }, [level, navigate, currentLanguage]);
+
+    const showResultModal = () => {
+        setResultModal(true)
+    }
 
     const levelUp = () => {
         setLevel((prevLevel) => prevLevel + 1);
@@ -110,15 +114,17 @@ function GrammarQuizPage() {
 
     const closeModal = () => {
         setModalOpen(false)
+        setScore(0);
     }
 
-    const openModal = () => {
-        setModalOpen(true)
+    const closeResultModal = () => {
+        setResultModal(false)
+        setScore(0);
     }
 
     const onLevelUpClick= () => {
         closeModal();
-        navigate(`/${currentLanguage}/subject`)
+        navigate(-1)
       }
 
 
@@ -126,6 +132,7 @@ function GrammarQuizPage() {
         <>
             <article className="quiz">
                 <section className="quiz__wrapper" >
+                <h5 className="grammar-vocab__level">{`${score}`}</h5>
                     <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
                     <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
                     <figure className="quiz__question">
@@ -138,9 +145,15 @@ function GrammarQuizPage() {
                     </figure>
                 </section>
 
-                {modalOpen && (
-                    <Modal modalHeader="You leveled up!" closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! There's some new content unlocked for you!`} buttonText="Check it out!" onClick={onLevelUpClick} />
+                {resultModal && (
+                    <Modal modalHeader={`Your score: ${score}`} closeModal={closeResultModal} modalText="Try again to level up!" buttonText="Close" onClick={onLevelUpClick} />
                 )}
+
+                {modalOpen && (
+                    <Modal modalHeader={`You leveled up!`} closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! There's some new content unlocked for you!`} buttonText="Check it out!" onClick={onLevelUpClick} />
+                )}
+
+                
             </article>
         </>
     )
