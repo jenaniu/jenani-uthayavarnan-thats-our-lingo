@@ -20,6 +20,14 @@
     align-items: center;
     @include side-padding-mobile;
 
+    &__level {
+        padding: 1rem;
+        margin: 1rem 0rem;
+        align-self: flex-end;
+        background-color: $color-primary-cta-hover;
+        border-radius: 2rem;
+    }
+
     &__header {
         @include header-text;
         color: $color-primary-text;

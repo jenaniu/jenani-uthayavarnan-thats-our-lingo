@@ -17,8 +17,6 @@ function ChooseGrammarCategoryPage() {
 
     const { langFromParams } = useParams();
     let currentLanguage = langFromParams
-    // const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
-
 
     const handleClick = (category) => {
         navigate(`/${currentLanguage}/grammar/${category}`)
@@ -51,11 +49,12 @@ function ChooseGrammarCategoryPage() {
     return (
         <>
             <section className="choose-vocab" >
+            <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
                 <PageHeader headerClassName="choose-vocab__header" headerText="Choose a grammar concept!" />
                 <article className="choose-vocab__buttons">
                     <figure className="choose-vocab__buttons--wrapper">
                             {currentLevelFilter.map((category) => (
-                                <Button key={category.id} buttonText={category.grammar_concept} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
+                                <Button key={category.id} buttonText={`Level ${category.level}: ${category.grammar_concept}`} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
                             ))}
                     </figure>
                     <figure className="choose-vocab__buttons--wrapper">

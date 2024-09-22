@@ -26,7 +26,7 @@ function GrammarVocabPage() {
     }
 
     const handleGrammarClick = () => {
-        navigate(`/${langFromParams}/grammar`,  { state: level } )
+        navigate(`/${currentLanguage}/grammar`,  { state: level } )
     }
 
  
@@ -35,6 +35,7 @@ function GrammarVocabPage() {
     return (
         <>
             <section className="grammar-vocab" >
+                <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
                 <PageHeader headerClassName="grammar-vocab__header" headerText={`Let's learn some ${currentLanguage}!`} />
                 <h1 className="grammar-vocab__subheader">Choose a Category!</h1>
                 <article className="choose-lang__buttons">

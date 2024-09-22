@@ -47,11 +47,12 @@ function ChooseVocabCategoryPage() {
     return (
         <>
             <section className="choose-vocab" >
+            <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
                 <PageHeader headerClassName="choose-vocab__header" headerText="Choose a vocabulary category" />
                 <article className="choose-vocab__buttons">
                     <figure className="choose-vocab__buttons--wrapper">
                             {currentLevelFilter.map((category) => (
-                                <Button key={category.id} buttonText={category.vocab_category} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
+                                <Button key={category.id} buttonText={`Level ${category.level}: ${category.vocab_category}`} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
                             ))}
                     </figure>
                     <figure className="choose-vocab__buttons--wrapper">
