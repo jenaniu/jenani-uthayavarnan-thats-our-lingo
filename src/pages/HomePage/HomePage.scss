@@ -8,12 +8,14 @@
 
 body {
     background-color: $color-primary-background;
-    height: 100vh;
+    min-height: calc(100vh - 3rem);
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .homepage {
     display: flex;
-    height: 80vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;

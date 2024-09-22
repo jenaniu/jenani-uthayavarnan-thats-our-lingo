@@ -18,7 +18,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
     @include side-padding-mobile;
 
     &__level {

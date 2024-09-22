@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.scss'
+import './styles/global.scss'
 import HomePage from './pages/HomePage/HomePage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
@@ -20,6 +20,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/languages" element={<ChooseLanguagePage />} />
@@ -30,6 +31,7 @@ function App() {
           <Route path="/:langFromParams/grammar/:idFromParams" element={<GrammarConceptPage />} />
           <Route path="/:langFromParams/grammar/quiz" element={<GrammarQuizPage />} />
         </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </>
