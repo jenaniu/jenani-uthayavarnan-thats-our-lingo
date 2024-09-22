@@ -5,6 +5,7 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import ConceptText from '../../components/ConceptText/ConceptText'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -49,7 +50,7 @@ function GrammarConceptPage() {
     console.log(concept)
 
     const onClickNext = () => {
-        console.log("Good job!")
+        navigate(-1)
     }
     
     return (
@@ -57,7 +58,7 @@ function GrammarConceptPage() {
             <section className="choose-vocab" >
                 <PageHeader headerClassName="choose-vocab__header" headerText="Choose a grammar concept!" />
                     <h1> {grammar_concept} </h1>
-                    <p> {concept_text} </p>
+                    <ConceptText text={concept_text} />
             </section>
             <Button buttonClassName="concept__next" buttonTextClassName="concept__button--text" buttonText="Got it!" onClick={onClickNext}/>
         </>
