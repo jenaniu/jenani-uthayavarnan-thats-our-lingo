@@ -14,14 +14,6 @@ function HomePage() {
 
   return (
     <>
-      {/* <HelmetProvider> */}
-        {/* <Helmet>
-          <title>That's Our Lingo</title>
-        </Helmet> */}
-      {/* </HelmetProvider> */}
-
-
-
       <section className="homepage" >
         <h1 className="homepage__header">WELCOME TO</h1>
         <img className="homepage__logo" src={logo}></img>

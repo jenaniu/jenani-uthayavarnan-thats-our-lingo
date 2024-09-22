@@ -3,15 +3,32 @@ import Button from '../../components/Button/Button'
 import './ChooseLanguagePage.scss'
 import PageHeader from '../../components/PageHeader/PageHeader'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import Modal from '../../components/Modal/Modal'
 
 
 function ChooseLanguagePage() {
     const navigate = useNavigate()
+    const [modalOpen, setModalOpen] = useState(false);
 
-    const handleClick = (language) => {
-        navigate(`/${language}/subject`);
-        return
+    const onClick = (language) => {
+        if (language==="french") {
+            navigate(`/${language}/subject`);
+            return
+        } else {
+            openModal()
+            return
+        }
       };
+
+      const closeModal = () => {
+        setModalOpen(false)
+        return
+    }
+
+    const openModal = () => {
+        setModalOpen(true)
+    }
 
     return (
         <>
@@ -19,15 +36,19 @@ function ChooseLanguagePage() {
                 <PageHeader headerClassName="choose-lang__header" headerText="Choose a Language!"/>
                 <article className="choose-lang__buttons">
                     <figure className="choose-lang__buttons--wrapper">
-                        <Button buttonClassName="choose-lang__button" onClick={() => handleClick("french")} buttonText="French" />
-                        <Button buttonClassName="choose-lang__button" onClick={() => handleClick("spanish")} buttonText="Spanish" />
+                        <Button buttonClassName="choose-lang__button" onClick={() => onClick("french")} buttonText="French" />
+                        <Button buttonClassName="choose-lang__button" onClick={() => onClick("spanish")} buttonText="Spanish" />
                     </figure>
                     <figure className="choose-lang__buttons--wrapper">
-                        <Button buttonClassName="choose-lang__button" onClick={() => handleClick("german")} buttonText="German" />
-                        <Button buttonClassName="choose-lang__button" onClick={() => handleClick("korean")} buttonText="Korean" />
+                        <Button buttonClassName="choose-lang__button" onClick={() => onClick("german")} buttonText="German" />
+                        <Button buttonClassName="choose-lang__button" onClick={() => onClick("korean")} buttonText="Korean" />
                     </figure>
                 </article>
             </section>
+
+            {modalOpen && (
+                    <Modal modalHeader="Coming soon" modalText={`The learning plan for this language is coming soon!`} buttonText="Pick another language!" onClick={closeModal} />
+                )}
         </>
     )
 }

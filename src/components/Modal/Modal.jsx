@@ -3,7 +3,7 @@ import Button from '../Button/Button'
 import './Modal.scss'
 
 
-function Modal({ modalHeader, modalText, closeModal, buttonText, onClick }) {
+function Modal({ modalHeader, modalText, buttonText, onClick }) {
 
   const navigate = useNavigate();
 
