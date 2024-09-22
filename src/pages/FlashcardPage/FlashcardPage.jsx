@@ -58,16 +58,14 @@ function FlashcardPage() {
 
     return (
         <>
-            <section className="choose-vocab" >
-                <PageHeader headerClassName="choose-vocab__header" headerText="Let's practice" />
-                <article className="choose-vocab__buttons">
-                    {/* {categories.map((vocabulary) => (
-                        // console.log(vocabulary.vocab_word)
-                        // console.log(vocabulary.translation) */}
+            <section className="flashcard-page" >
+                <PageHeader headerClassName="flashcard-page__header" headerText="Let's practice" />
+                <article className="flashcard-page__buttons">
+                    
                         <Flashcard key={vocabulary[currentCard].id} vocabWord={vocabulary[currentCard].vocab_word} translation={vocabulary[currentCard].translation} />
-                    {/* ))} */}
-                    <figure className="choose-vocab__buttons--wrapper">
-                        <Button buttonClassName="flashcard__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={handleClick} />
+           
+                    <figure className="flashcard-page__buttons--wrapper">
+                        <Button buttonClassName="flashcard-page__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={handleClick} />
                     </figure>
                 </article>
             </section>

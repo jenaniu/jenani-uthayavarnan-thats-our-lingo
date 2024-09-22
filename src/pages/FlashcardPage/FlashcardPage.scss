@@ -1,0 +1,10 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/resets' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
+.flashcard-page {
+    @include side-padding-mobile;
+    height: calc(100vh - 2.25rem);
+}

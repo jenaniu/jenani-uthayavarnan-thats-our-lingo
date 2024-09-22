@@ -56,12 +56,12 @@ function GrammarConceptPage() {
     
     return (
         <>
-            <section className="choose-vocab" >
-                <PageHeader headerClassName="choose-vocab__header" headerText="Choose a grammar concept!" />
+            <section className="concept" >
+                <PageHeader headerClassName="concept__header" headerText="Choose a grammar concept!" />
                     <h1> {grammar_concept} </h1>
                     <ConceptText text={concept_text} />
-            </section>
             <Button buttonClassName="concept__next" buttonTextClassName="concept__button--text" buttonText="Got it!" onClick={onClickNext}/>
+            </section>
         </>
     )
 }
