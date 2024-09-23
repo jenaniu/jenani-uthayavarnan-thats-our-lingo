@@ -91,9 +91,25 @@ There are many language learning apps out there, but they either focus on pure m
 #### Grammar Quiz
 ![](grammar-quiz.png)
 
-### Data
+### Setup Instructions
+Install dependencies:
+npm install
 
+Create database in MySQL
+- database name: thats_our_lingo
 
+Run the development server:
+npm run dev
+
+### Setup Instructions
+- axios: "^1.7.7",
+- helmet: "^7.1.0",
+- react: "^18.3.1",
+- react-dom: "^18.3.1",
+- react-helmet: "^6.1.0",
+- react-router-dom: "^6.26.2",
+- router-dom: "^2.2.11",
+- sass: "^1.78.0"
 
 ### Endpoints
 
