@@ -5,11 +5,8 @@
 @use '../../styles/partials/mixins' as *;
 
 .quiz {
-    display: flex;
+    @include flex-align-justify-all-center;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     @include side-padding-mobile;
 
     @include tablet {
@@ -39,8 +36,7 @@
         }
     }
     &__wrapper {
-        display: flex;
-        flex-direction: column;
+        @include flex-direction-column;
 
         @include desktop {
             flex-direction: row;
@@ -65,8 +61,7 @@
             background-color: $color-quiz-question-background;
             border-radius: 2rem;
             padding: 1rem 0rem;
-            display: flex;
-            flex-direction: column;
+            @include flex-direction-column;
 
             @include desktop {
                 width: 80%;

@@ -5,11 +5,9 @@
 @use '../../styles/partials/mixins' as *;
 
 .choose-vocab {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+    @include flex-column-align-item-center;
     @include side-padding-mobile;
+    height: 100%;
 
     @include tablet {
         @include side-padding-tab-desk;
@@ -24,9 +22,8 @@
     }
     
     &__buttons {
-        display: flex;
+        @include flex-direction-column;
         width: 100%;
-        flex-direction: column;
         justify-content: center;
         gap: 1rem;
 

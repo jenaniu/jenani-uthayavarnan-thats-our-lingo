@@ -13,17 +13,14 @@
     border: none;
     padding: 1rem;
     transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    @include flex-align-justify-all-center;
 
 
     &:hover {
         background-color: $color-primary-cta-hover;
+        color: $color-primary-background;
         border: none;
         cursor: pointer;
-        color: $color-primary-background;
         transform: translateY(.25rem);
     }
      

@@ -6,10 +6,8 @@
 
 
 .homepage {
-    display: flex;
-    flex-direction: column;
+    @include flex-column-align-item-center;
     justify-content: center;
-    align-items: center;
     padding: 1rem;
     line-height: 2.5rem;
     text-align: center;

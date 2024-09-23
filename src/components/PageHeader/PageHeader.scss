@@ -8,10 +8,8 @@
     color: $color-primary-text;
     padding: 1rem 0rem;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    @include flex-align-justify-all-center;
+    
     &__text {
         align-self: center;
     }

@@ -6,9 +6,7 @@
 
 .concept {
     @include side-padding-mobile;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-column-align-item-center;
 
     @include tablet {
         @include side-padding-tab-desk;

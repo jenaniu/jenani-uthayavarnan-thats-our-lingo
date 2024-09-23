@@ -5,9 +5,7 @@
 @use '../../styles/partials/mixins' as *;
 
 .choose-lang {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-column-align-item-center;
     @include side-padding-mobile;
 
     @include tablet {
@@ -23,9 +21,8 @@
     }
     
     &__buttons {
-        display: flex;
+        @include flex-direction-column;
         width: 100%;
-        flex-direction: column;
         justify-content: center;
         gap: 1rem;
 
