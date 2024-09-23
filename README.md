@@ -97,105 +97,95 @@ There are many language learning apps out there, but they either focus on pure m
 
 ### Endpoints
 
+**GET /vocabulary/:languageFromParams**
+- get the vocabulary words for specific language for flashcards
 
-**GET languages**
-- get languages that are available for the user to learn and its vocabulary and grammar categories
+Parameters:
+- language: Language that the user selects in the Choose Language page
 
-
+Reponse:
 ```
-[ {
-    "id": 1 
-    "language_name": "French",
-    "vocab_categories" [{
-        "id": 1,
-        "level": 1
-        "category": "food",
-    },
-    {
-        "id": 2,
-        "level": 1
-        "category": "travel 101",
-    }]
-
-    "grammar_categories" [{
-        "id": 1,
-        "level": 1
-        "category": "mascule and feminine nouns",
-    },
-    {
-        "id": 2,
-        "level": 1
-        "category": "travel 101",
-    }]
-}]
-
+[
+  {
+    "id": 1,
+    "vocab_category": "Food",
+    "language": "French",
+    "level": 1
+  },
+  {
+    "id": 2,
+    "vocab_category": "Travel 101",
+    "language": "French",
+    "level": 1
+  },
+  {
+    "id": 3,
+    "vocab_category": "Hello & Goodbye",
+    "language": "French",
+    "level": 1
+  },
+]
 ```
 
-**GET /vocabulary/:id**
+**GET /vocabulary/:languageFromParams/:id**
 - get the vocabulary words for specific category for flashcards
 
 Parameters:
 - id: Category that the user selects in the vocabulary page
+- language: Language that the user selects in the Choose Language page
 
 Reponse:
 ```
-[ {
-    "id": 1 
-    "category_name": "Food",
-    "language_id": 1, 
-    "vocabulary": [{
-        "id": 1,
-        "vocabulary": "une pomme",
-        "translation": "apple"
-    },
-    {
-        "id": 2,
-        "vocabulary": "la mangue",
-        "translation": "mango"   
-    }]
-
-}]
+[
+  {
+    "id": 1,
+    "vocab_word": "la pomme",
+    "translation": "apple",
+    "category_id": 1
+  },
+  {
+    "id": 2,
+    "vocab_word": "l'ananas'",
+    "translation": "pineapple",
+    "category_id": 1
+  },
+]
 ```
 
-**GET /grammar/:id**
-- get the content for the grammar content for specific category for flashcards
+**GET /grammar/:languageFromparams**
+- get the grammar content for a specific language
 
 Parameters:
-- id: Grammar concept that the user selects in the grammar page
+- language: Language user selects
 
 Reponse:
 ```
 [ {
     "id": 1 
-    "concept_name": "masculine and feminine nouns",
-    "language_id": 1, 
-    "content": "include content here"
+    "grammar_concept": "masculine and feminine nouns",
+    "language": "French", 
+    "concept_text": "include content here"
 } ]
 ```
 
-**GET /grammar/quiz/:id**
-- get the quiz questions for the grammar concept section
+**GET /grammar/:language/quiz/:level**
+- get the quiz questions for the user's language and current level
 
 Response:
 ```
 [ {
-    "id": 1 
-    "concept_name_id: "1"
-    "language_id": 1, 
-    "quiz_questions": [{
-        "question":"question"
-        "correct_answer":"correct answer"
-        "incorrect_answers":["incorrect", "incorrect", "incorrect"]
-    }, 
-    {"question":"question"
-        "correct_answer":"correct answer"
-        "incorrect_answers":["incorrect", "incorrect", "incorrect"]}]
-} ]
+    "id": 1,
+    "question": "Fill in the blank!",
+    "image": "images/grammar-3-img-7.png",
+    "options": "[\"ai\",\"sommes\",\"suis\",\"sont\"]",
+    "correct_answer": "suis",
+    "grammar_id": 1
+  }, ]
 ```
 
 
 
-**POST /users/register**
+**POST /users/register - Not yet implemented**
 
 - Registers a user
 
@@ -283,6 +273,11 @@ Response:
 - Bug fixes
 
 - DEMO DAY
+
+## Changes from Proposal to Final
+- Removed requirement to attempt vocabulary and grammar concept before taking the 
+test, in order to give users the autonomy to complete their language learning the way they want
+- Removed vocabulary list component, as it seems redudant with the flashcard feature. May implement in the future if interest is there. 
 
 ## Nice-to-haves
 
