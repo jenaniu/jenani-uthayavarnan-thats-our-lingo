@@ -33,7 +33,7 @@ function GrammarConceptPage() {
                 const response = await axios.get(
                     `${baseURL}/grammar/concept/${currentConcept}`
                 );
-               
+
                 setConcept(response.data);
             }
             catch (error) {
@@ -43,24 +43,24 @@ function GrammarConceptPage() {
         getGrammarConcept();
     }, []);
 
-    if(concept===null) {
+    if (concept === null) {
         return <div>Content Loading...</div>
     }
-    
+
     const { id, concept_text, grammar_concept } = concept[0]
 
     const onClickNext = () => {
         localStorage.setItem(`${currentLanguage}_${currentConcept}_complete`, true);
         navigate(-1)
     }
-    
+
     return (
         <>
             <section className="concept" >
                 <PageHeader headerClassName="concept__header" headerText="Choose a grammar concept!" />
-                    <h1> {grammar_concept} </h1>
-                    <ConceptText text={concept_text} />
-            <Button buttonClassName="concept__next" buttonTextClassName="concept__button--text" buttonText="Got it!" onClick={onClickNext}/>
+                <h1> {grammar_concept} </h1>
+                <ConceptText className="concept__text" text={concept_text} />
+                <Button buttonClassName="concept__button" buttonTextClassName="concept__button--text" buttonText="Got it!" onClick={onClickNext} />
             </section>
         </>
     )

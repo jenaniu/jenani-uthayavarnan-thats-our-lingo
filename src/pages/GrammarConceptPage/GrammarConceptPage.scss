@@ -6,4 +6,37 @@
 
 .concept {
     @include side-padding-mobile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
+    @include desktop {
+        @include side-padding-tab-desk;
+    }
+
+    &__next {
+        @include tablet {
+            @include button-height-tab-desk;
+        }
+
+        @include desktop {
+            @include button-height-tab-desk;
+        }
+    }
+
+    &__button {
+        @include tablet {
+            @include button-height-tab-desk;
+            width: 50%;
+        }
+
+        @include desktop {
+            @include button-height-tab-desk;
+            width: 50%;
+        }
+    }
 }

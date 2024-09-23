@@ -14,6 +14,10 @@
         @include side-padding-tab-desk;
     }
 
+    @include desktop {
+        @include side-padding-tab-desk;
+    }
+
     &__header {
         @include header-text;
     }
@@ -29,6 +33,10 @@
             gap: 2rem;
         }
 
+        @include desktop{
+            gap: 2rem;
+        }
+
         &--wrapper {
             width: 100%;
             display: flex;
@@ -38,6 +46,10 @@
                 width: 100%;
 
                 @include tablet {
+                    height: 8rem;
+                }
+
+                @include desktop {
                     height: 8rem;
                 }
                 

@@ -20,10 +20,21 @@
     align-items: center;
     @include side-padding-mobile;
 
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
+    @include desktop {
+        @include side-padding-tab-desk;
+    }
+
     &__level {
-        align-self: end;
 
         @include tablet {
+            align-self: center;
+        }
+
+        @include desktop {
             align-self: center;
         }
     }
@@ -47,6 +58,10 @@
         @include tablet {
             margin-bottom: 2rem;
         }
+
+        @include desktop {
+            margin-bottom: 2rem;
+        }
     }
 
     &__buttons {
@@ -61,12 +76,22 @@
             flex-direction: row;
         }
 
+        @include desktop{
+            gap: 2rem;
+            flex-direction: row;
+        }
+
      
 
             .grammar-vocab__button {
                 width: 100%;
 
                 @include tablet {
+                    width: 50%;
+                    @include button-height-tab-desk;
+                }
+
+                @include desktop {
                     width: 50%;
                     @include button-height-tab-desk;
                 }

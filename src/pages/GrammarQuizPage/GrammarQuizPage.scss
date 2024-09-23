@@ -65,12 +65,20 @@
             background-color: $color-quiz-question-background;
             border-radius: 2rem;
             padding: 1rem 0rem;
+            display: flex;
+            flex-direction: column;
 
             @include desktop {
                 width: 80%;
                 align-self: center;
             }
 
+        }
+
+        .quiz__next {
+            width: auto;
+            align-self: start;
+            margin-left: 1rem;
         }
     }
 }

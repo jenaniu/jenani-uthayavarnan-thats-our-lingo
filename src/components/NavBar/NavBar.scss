@@ -10,7 +10,15 @@
     align-content: center;
     justify-content: space-between;
     color: $color-primary-text;
-    padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
+
+    @include tablet {
+        padding: 2rem;
+    }
+
+    @include desktop {
+        padding: 2rem;
+    }
 
     &__link {
         text-decoration: none;
@@ -39,4 +47,17 @@
         }
     }
 
+}
+
+.nav__back {
+    width: 15%;
+    padding: 1.5rem 1rem 0.5rem 1rem;
+
+    @include tablet {
+        width: 10%;
+    }
+
+    @include desktop {
+        width: 10%;
+    }
 }

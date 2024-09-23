@@ -14,6 +14,14 @@
     color: $color-primary-text;
     padding: 1.5rem 0.5rem 0.5rem 0.5rem;
 
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
+    @include desktop {
+        @include side-padding-tab-desk;
+    }
+
     &__link {
         text-decoration: none;
         color: $color-primary-text;

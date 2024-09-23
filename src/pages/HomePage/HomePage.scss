@@ -30,6 +30,10 @@
         @include tablet {
             width: 60%;
         }
+
+        @include desktop {
+            width: 40%;
+        }
     }
 
     &__button {
@@ -38,6 +42,11 @@
         @include tablet {
             width: 50%;
         }
+
+        @include desktop {
+            width: 50%;
+        }
+        
         &-text {
             font-size: 1.5rem;
         }

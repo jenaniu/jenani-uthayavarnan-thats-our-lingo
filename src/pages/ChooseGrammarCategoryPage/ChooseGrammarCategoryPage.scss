@@ -33,6 +33,10 @@
             gap: 2rem;
         }
 
+        @include desktop {
+            gap: 2rem;
+        }
+
         &--wrapper {
             width: 100%;
             display: flex;
@@ -44,10 +48,18 @@
                 gap: 2rem;
             }
 
+            @include desktop {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
             .choose-grammar__button {
                 @include tablet {
-                    @include button-height-tab-desk; 
-                    
+                    @include button-height-tab-desk;   
+                }
+
+                @include desktop {
+                    @include button-height-tab-desk;   
                 }
             }
 

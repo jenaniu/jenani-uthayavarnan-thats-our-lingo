@@ -1,10 +1,13 @@
 import './PageHeader.scss'
-function PageHeader ({headerClassName, headerText}) {
+function PageHeader({ headerClassName, headerText }) {
+
+   
+
     return (
         <>
-        
-        <h1 className={`header ${headerClassName}`}>{headerText}</h1>
-
+            <figure className="header">
+                <h1 className={`header__text ${headerClassName}`}>{headerText}</h1>
+            </figure>
         </>
     )
 }
