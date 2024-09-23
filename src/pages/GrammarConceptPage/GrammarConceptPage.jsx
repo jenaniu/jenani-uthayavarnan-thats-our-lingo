@@ -21,12 +21,6 @@ function GrammarConceptPage() {
     let currentConcept = idFromParams
     const currentLevel = JSON.parse(localStorage.getItem(`${currentLanguage} Level`));
 
-
-
-    // const handleClick = (category) => {
-    //     navigate(`/${currentLanguage}/concept/${category.id}`)
-    // };
-
     useEffect(() => {
         const getGrammarConcept = async () => {
             try {
