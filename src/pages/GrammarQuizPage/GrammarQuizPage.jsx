@@ -116,7 +116,7 @@ function GrammarQuizPage() {
 
     const onLevelUpClick = () => {
         closeModal();
-        navigate(-1)
+        navigate(`/${currentLanguage}/subject`)
     }
 
 
