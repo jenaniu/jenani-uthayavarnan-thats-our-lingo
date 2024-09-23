@@ -59,37 +59,37 @@ There are many language learning apps out there, but they either focus on pure m
 ### Mockups
 
 #### Home Page
-![](proposal/home.png)
+![](home.png)
 
 #### Register Page
-![](proposal/register.png)
+![](register.png)
 
 #### Login Page
-![](proposal/login.png)
+![](login.png)
 
 #### Choose Language
-![](proposal/choose-language.png)
+![](choose-language.png)
 
 #### Choose Grammar or Vocabulary
-![](proposal/grammar-vocab-select.png)
+![](grammar-vocab-select.png)
 
 #### Choose Vocabulary Category
-![](proposal/vocab-categories.png)
+![](vocab-categories.png)
 
 #### Choose Flashcards or Quiz
-![](proposal/flashcards-or-quiz.png)
+![](flashcards-or-quiz.png)
 
 #### Flashcards
-![](proposal/flashcards.png)
+![](flashcards.png)
 
 #### Grammar Concept Selection
-![](proposal/grammar-concepts.png)
+![](grammar-concepts.png)
 
 #### Grammar Concept Details
-![](proposal/grammar-concept-details.png)
+![](grammar-concept-details.png)
 
 #### Grammar Quiz
-![](proposal/grammar-quiz.png)
+![](grammar-quiz.png)
 
 ### Data
 
