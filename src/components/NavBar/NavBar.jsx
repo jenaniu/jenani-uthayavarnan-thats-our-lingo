@@ -24,7 +24,7 @@ function NavBar() {
                     <h5 className="nav-bar__text">Languages</h5>
                 </Link>
             </section>
-            <img className="nav__back" src={backButton} onClick={onClick}></img>
+            {/* <img className="nav__back" src={backButton} onClick={onClick}></img> */}
 
         </>
     )
