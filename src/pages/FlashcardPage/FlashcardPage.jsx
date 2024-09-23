@@ -49,11 +49,11 @@ function FlashcardPage() {
             setCardsComplete(true)
         }
     }
-    
-    
-    
 
-    if(vocabulary===null) {
+
+
+
+    if (vocabulary === null) {
         return <div>Flashcards Loading...</div>
     }
 
@@ -62,9 +62,7 @@ function FlashcardPage() {
             <section className="flashcard-page" >
                 <PageHeader headerClassName="flashcard-page__header" headerText="Let's practice!" />
                 <article className="flashcard-page__buttons">
-                    
-                        <Flashcard key={vocabulary[currentCard].id} vocabWord={vocabulary[currentCard].vocab_word} translation={vocabulary[currentCard].translation} />
-           
+                    <Flashcard key={vocabulary[currentCard].id} vocabWord={vocabulary[currentCard].vocab_word} translation={vocabulary[currentCard].translation} />
                     <figure className="flashcard-page__buttons--wrapper">
                         <Button buttonClassName="flashcard-page__next" buttonTextClassName="flashcard__next--text" buttonText="Next" onClick={handleClick} />
                     </figure>

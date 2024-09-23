@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { capitalizeLang } from '../../utils/capitalizeLang'
+import LevelBanner from '../../components/LevelBanner/LevelBanner'
 
 const baseURL = import.meta.env.VITE_API_URL
 
@@ -19,19 +20,19 @@ function ChooseGrammarCategoryPage() {
 
     const { langFromParams } = useParams();
     let currentLanguage = capitalizeLang(langFromParams)
-   
+
 
     const handleClick = (category) => {
         navigate(`/${currentLanguage}/grammar/${category}`)
     };
 
     const handleTestClick = () => {
-        if (level >= 3 ) {
+        if (level >= 3) {
             alert("Quiz coming soon!")
             return
         }
         else {
-            navigate(`/${currentLanguage}/grammar/quiz`, { state: level } )
+            navigate(`/${currentLanguage}/grammar/quiz`, { state: level })
         }
     };
 
@@ -41,7 +42,7 @@ function ChooseGrammarCategoryPage() {
                 const response = await axios.get(
                     `${baseURL}/grammar/${currentLanguage}`
                 );
-               
+
                 setCategories(response.data);
             }
             catch (error) {
@@ -51,23 +52,23 @@ function ChooseGrammarCategoryPage() {
         getGrammarCategories();
     }, []);
 
-    
+
 
     const currentLevelFilter = categories.filter(category => category.level <= level)
 
     return (
         <>
-            <section className="choose-vocab" >
-            <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
-                <PageHeader headerClassName="choose-vocab__header" headerText="Choose a grammar concept!" />
-                <article className="choose-vocab__buttons">
-                    <figure className="choose-vocab__buttons--wrapper">
-                            {currentLevelFilter.map((category) => (
-                                <Button key={category.id} buttonText={`Level ${category.level}: ${category.grammar_concept}`} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
-                            ))}
+            <section className="choose-grammar" >
+                <LevelBanner language={capitalizeLang(currentLanguage)} level={level} levelBannerClass="choose-grammar__level" />
+                <PageHeader headerClassName="choose-grammar__header" headerText="Choose a grammar concept!" />
+                <article className="choose-grammar__buttons">
+                    <figure className="choose-grammar__buttons--wrapper">
+                        {currentLevelFilter.map((category) => (
+                            <Button key={category.id} buttonText={`Level ${category.level}: ${category.grammar_concept}`} buttonClassName="choose-grammar__button" onClick={() => handleClick(category.id)} />
+                        ))}
                     </figure>
-                    <figure className="choose-vocab__buttons--wrapper">
-                    <Button buttonText="Test your knowledge!" buttonClassName="choose-vocab__button" onClick={() => handleTestClick()} />
+                    <figure className="choose-grammar__buttons--wrapper">
+                        <Button buttonText="Test your knowledge!" buttonClassName='choose-grammar__button' onClick={() => handleTestClick()} />
                     </figure>
                 </article>
             </section>

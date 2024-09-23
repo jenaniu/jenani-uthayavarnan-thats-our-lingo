@@ -15,4 +15,18 @@
         @include side-padding-tab-desk;
 
     }
+
+    &__buttons {
+        display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &--wrapper {
+                width: 100%;
+
+                @include tablet {
+                    width: 60%;
+                }
+            }
+    }
 }

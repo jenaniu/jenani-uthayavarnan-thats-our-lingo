@@ -47,7 +47,7 @@ function GrammarQuizPage() {
 
     useEffect(() => {
         if (showResult) {
-            const percentScore = (score/(quiz.length*100))*100
+            const percentScore = (score / (quiz.length * 100)) * 100
             if (percentScore >= 70) {
                 levelUp()
             } else {
@@ -114,18 +114,18 @@ function GrammarQuizPage() {
         setScore(0);
     }
 
-    const onLevelUpClick= () => {
+    const onLevelUpClick = () => {
         closeModal();
         navigate(-1)
-      }
+    }
 
 
     return (
         <>
             <article className="quiz">
                 <h5 className="quiz__score-count">{`${score}`}</h5>
+                <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
                 <section className="quiz__wrapper" >
-                    <PageHeader headerClassName="quiz__header" key={quiz[currentQuestion].id} headerText={quiz[currentQuestion].question} />
                     <img className="quiz__img" src={`${baseURL}/${quiz[currentQuestion].image}`}></img>
                     <figure className="quiz__question">
                         {options.map((option) => (
@@ -138,14 +138,14 @@ function GrammarQuizPage() {
                 </section>
 
                 {resultModal && (
-                    <Modal modalHeader={`Your score: ${score}`} closeModal={closeResultModal} modalText={`Nice try! You need to score ${Math.ceil((quiz.length*0.7)*100)} to level up!`} buttonText="Try again!" onClick={onLevelUpClick} />
+                    <Modal modalHeader={`Your score: ${score}`} closeModal={closeResultModal} modalText={`Nice try! You need to score ${Math.ceil((quiz.length * 0.7) * 100)} to level up!`} buttonText="Try again!" onClick={onLevelUpClick} />
                 )}
 
                 {modalOpen && (
                     <Modal modalHeader={`You leveled up!`} closeModal={closeModal} modalText={`Great job, you're now at level ${level} for ${currentLanguage}! There's some new content unlocked for you!`} buttonText="Check it out!" onClick={onLevelUpClick} />
                 )}
 
-                
+
             </article>
         </>
     )

@@ -6,6 +6,7 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { capitalizeLang } from '../../utils/capitalizeLang'
+import LevelBanner from '../../components/LevelBanner/LevelBanner'
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -31,7 +32,7 @@ function ChooseVocabCategoryPage() {
                 const response = await axios.get(
                     `${baseURL}/vocabulary/${currentLanguage}`
                 );
-               
+
                 setCategories(response.data);
             }
             catch (error) {
@@ -46,16 +47,12 @@ function ChooseVocabCategoryPage() {
     return (
         <>
             <section className="choose-vocab" >
-            <h5 className="grammar-vocab__level">{`${currentLanguage} Level: ${level}`}</h5>
+                <LevelBanner language={capitalizeLang(currentLanguage)} level={level} levelBannerClass="grammar-vocab__level" />
                 <PageHeader headerClassName="choose-vocab__header" headerText="Choose a vocabulary category" />
                 <article className="choose-vocab__buttons">
-                    <figure className="choose-vocab__buttons--wrapper">
-                            {currentLevelFilter.map((category) => (
-                                <Button key={category.id} buttonText={`Level ${category.level}: ${category.vocab_category}`} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
-                            ))}
-                    </figure>
-                    <figure className="choose-vocab__buttons--wrapper">
-                    </figure>
+                    {currentLevelFilter.map((category) => (
+                        <Button key={category.id} buttonText={`Level ${category.level}: ${category.vocab_category}`} buttonClassName="choose-vocab__button" onClick={() => handleClick(category.id)} />
+                    ))}
                 </article>
             </section>
         </>

@@ -9,6 +9,22 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    align-items: center;
+    @include side-padding-mobile;
+
+    @include tablet {
+        @include side-padding-tab-desk;
+    }
+
+    @include desktop {
+        @include side-padding-tab-desk;
+    }
+
+    &__header {
+        @include desktop {
+            align-self: flex-start;
+        }
+    }
 
     &__score-count {
         padding: 1rem 2rem;
@@ -16,16 +32,44 @@
         width: 5rem;
         border-radius: 2rem;
         background-color: $color-quiz-question-background;
+        text-align: center;
+
+        @include desktop {
+            align-self: flex-start;
+        }
     }
     &__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        @include desktop {
+            flex-direction: row;
+        }
+
         .quiz__img { 
             max-width: 50%;
+            align-self: center;
+
+            @include tablet {
+                width: 40%;
+            }
+
+            @include desktop {
+                width: 30%;
+                align-self: center;
+                justify-self: flex-start;
+            }
         }
         
         .quiz__question {
             background-color: $color-quiz-question-background;
             border-radius: 2rem;
             padding: 1rem 0rem;
+
+            @include desktop {
+                width: 80%;
+                align-self: center;
+            }
 
         }
     }
