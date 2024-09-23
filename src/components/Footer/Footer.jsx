@@ -4,11 +4,11 @@ function Footer() {
     return (
         <>
             <section className="footer">
-                <Link to="https://github.com/jenaniu/jenani-uthayavarnan-thats-our-lingo" className="footer__link">
+                <Link className="footer__link" to="https://github.com/jenaniu/jenani-uthayavarnan-thats-our-lingo" className="footer__link">
                     <p>GitHub</p>
                 </Link>
-                <p>Designed by Jenani</p>
-                <Link to="https://github.com/jenaniu/jenani-uthayavarnan-thats-our-lingo-api" className="footer__link">
+                <p className="footer__text">Designed by Jenani</p>
+                <Link className="footer__link" to="https://github.com/jenaniu/jenani-uthayavarnan-thats-our-lingo-api" className="footer__link">
                     <p>API</p>
                 </Link>
             </section>
