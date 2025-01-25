@@ -1,0 +1,23 @@
+@use './variables' as *;
+
+@keyframes slide-fade-top{
+    0% {
+      transform: translateY(-1%);
+      opacity: 0%
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 100%
+    }
+}
+
+
+@keyframes button-hover {
+    0% {
+        color:$color-primary-text;
+    }
+
+    100% {
+        color: $color-primary-label;
+    }
+}

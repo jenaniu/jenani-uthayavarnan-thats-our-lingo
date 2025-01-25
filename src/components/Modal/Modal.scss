@@ -3,6 +3,8 @@
 @use '../../styles/partials/resets' as *;
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/keyframe' as *;
+
 
 .modal__overlay {
     width: 100vw;
@@ -15,6 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: 0.5s ease-out 0s 1 slide-fade-top;
+
 
     .modal__container {
         background-color: $color-primary-text-light;

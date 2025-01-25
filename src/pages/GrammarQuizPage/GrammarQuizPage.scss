@@ -3,11 +3,13 @@
 @use '../../styles/partials/resets' as *;
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/keyframe' as *;
 
 .quiz {
     @include flex-align-justify-all-center;
     flex-direction: column;
     @include side-padding-mobile;
+    animation: 1s ease-out 0s 1 slide-fade-top;
 
     @include tablet {
         @include side-padding-tab-desk;
